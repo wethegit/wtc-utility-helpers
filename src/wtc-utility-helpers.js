@@ -2,6 +2,44 @@ window.wtc.utilities = window.wtc.utilities || {};
 
 (function(utilities) {
   /**
+   * Log
+   * Simple log function to show different colors on the console.
+   * @status {string} Status type.
+   * @msg {string} Message to show.
+   */
+  utilities.log = function(status, msg) {
+    var bgc, color;
+
+    switch (status) {
+      case "success":
+        color = "Green";
+        bgc = "LimeGreen";
+        break;
+      case "info":
+        color = "DodgerBlue";
+        bgc = "Turquoise";
+        break;
+      case "error":
+        color = "Black";
+        bgc = "Red";
+        break;
+      case "warning":
+        color = "Tomato";
+        bgc = "Gold";
+        break;
+      default:
+        color = "black";
+        bgc = "White";
+    }
+
+    if (typeof msg === "object") {
+      console.log(msg);
+    } else {
+      console.log("%c" + msg, "color:" + color + ";font-weight:bold; background-color: " + bgc + ";");
+    }
+  };
+
+  /**
    * once
    * Fires an event only once and executes the callback.
    * @node {DOMElement} Dom element to attach event.
