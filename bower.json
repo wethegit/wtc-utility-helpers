@@ -1,0 +1,16 @@
+{
+  "name": "wtc-utility-helpers",
+  "homepage": "https://github.com/wethegit/wtc-utility-helpers",
+  "authors": [
+    "Marlon Marcello <marlon@wethecollective.com>"
+  ],
+  "description": "Javascript helpers.",
+  "main": "src/helpers.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    ".DS_Store"
+  ]
+}
