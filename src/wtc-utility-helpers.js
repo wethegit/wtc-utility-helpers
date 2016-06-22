@@ -84,18 +84,19 @@ window.wtc.utilities = window.wtc.utilities || {};
    * @name {string} Name of the event.
    * @data {object} Object to be passed to the event.
    */
-  utilities.fireCustomEvent = function(name, data) {
+  utilities.fireCustomEvent = function(name, data, bubbles, cancelable) {
     var ev;
+    var params = {
+      bubbles: bubbles || true,
+      cancelable: cancelable || true,
+      detail: data || null
+    };
 
-    if (!data) {
-      data = {};
-    }
-
-    if (window.CustomEvent) {
-      ev = new CustomEvent(name, {detail: data});
+    if (typeof window.CustomEvent === "function") {
+      ev = new CustomEvent(name, params);
     } else {
-      ev = window.createEvent('CustomEvent');
-      ev.initCustomEvent(name, true, true, data);
+      ev = document.createEvent('CustomEvent');
+      ev.initCustomEvent(name, params.bubbles, params.cancelable, params.detail);
     }
 
     window.dispatchEvent(ev);
