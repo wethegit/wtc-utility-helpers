@@ -1,4 +1,5 @@
-window.wtc.utilities = window.wtc.utilities || {};
+window.wtc || (window.wtc = {});
+window.wtc.utilities || (window.wtc.utilities = {});
 
 (function(utilities) {
   /**
