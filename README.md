@@ -8,6 +8,10 @@ Get the current style value from an element.
 Target element.
 * **prop** [string] ''  
 CSS property name.
+* **stripUnit** [boolean] false  
+Remove units.
+* **return** [string]  
+Current CSS value.
 
 ```javascript
 utilities.getStyle(document.getElementById('wrapper'), 'padding-bottom');

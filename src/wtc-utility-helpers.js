@@ -7,9 +7,12 @@ window.wtc.utilities = window.wtc.utilities || {};
    * Get the current style value from an element.
    * @el {DOMNode} Target element.
    * @prop {string} CSS property name.
+   * @stripUnit {boolean} Remove units.
+   * return {string} Current CSS value WITH unit.
    */
-  utilities.getStyle = function(el, prop){
+  utilities.getStyle = function(el, prop, stripUnit){
     var strValue = "";
+    
     if(window.getComputedStyle) {
       strValue = getComputedStyle(oElm).getPropertyValue(css3Prop);
     }
@@ -18,6 +21,10 @@ window.wtc.utilities = window.wtc.utilities || {};
       try {
         strValue = oElm.currentStyle[css3Prop];
       } catch (e) {}
+    }
+
+    if (stripUnit) {
+      strValue = parseInt(strValue);
     }
 
     return strValue;
