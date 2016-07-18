@@ -1,6 +1,18 @@
 # wtc-utilities
 Javascript helpers, perfect for non-jquery projects.
 ## Helpers
+### getStyle
+Get the current style value from an element.
+
+* **el** [DOMNode] ''  
+Target element.
+* **prop** [string] ''  
+CSS property name.
+
+```javascript
+utilities.getStyle(document.getElementById('wrapper'), 'padding-bottom');
+```
+
 ### log
 Simple log function to show different colors on the console.  
 

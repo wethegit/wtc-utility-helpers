@@ -1,7 +1,28 @@
-window.wtc || (window.wtc = {});
-window.wtc.utilities || (window.wtc.utilities = {});
+window.wtc = window.wtc || {};
+window.wtc.utilities = window.wtc.utilities || {};
 
 (function(utilities) {
+  /**
+   * getStyle
+   * Get the current style value from an element.
+   * @el {DOMNode} Target element.
+   * @prop {string} CSS property name.
+   */
+  utilities.getStyle = function(el, prop){
+    var strValue = "";
+    if(window.getComputedStyle) {
+      strValue = getComputedStyle(oElm).getPropertyValue(css3Prop);
+    }
+    //IE
+    else if (oElm.currentStyle) {
+      try {
+        strValue = oElm.currentStyle[css3Prop];
+      } catch (e) {}
+    }
+
+    return strValue;
+  };
+
   /**
    * Log
    * Simple log function to show different colors on the console.
