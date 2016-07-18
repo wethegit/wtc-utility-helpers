@@ -300,22 +300,6 @@ window.wtc.utilities = window.wtc.utilities || {};
   };
 
   /**
-   * GetStyle
-   * Get specified style value from element
-   * @el {DOM Element} Element
-   * @style {string} name of the style
-   * @return {string} Style Value
-   */
-  utilities.getStyle = function(el, style) {
-
-    var y;
-    y = document.defaultView.getComputedStyle(el, null).getPropertyValue(style);
-
-    return y;
-
-  };
-
-  /**
    * Function to normalize the selctor 'matchesSelector' across browsers
    */
   utilities.matches = function() {

@@ -157,19 +157,6 @@ Normalized matches function.
 utilities.matches();
 ```
 
-### getStyle
-Get specified style value from pseudo element.
-* **el** [DOMElement] null  
-Element
-* **style** [string] null  
-Name of the style
-* **return** [string]
-Style value.
-
-```javascript
-utilities.getStyle(el, style);
-```
-
 ### extend
 Similar to jquery.extend, it appends the properties from _options_ to _default_ and overwrite the ones that already exist in _defaults_.
 * **defaults** [Object] null  
