@@ -12,14 +12,14 @@ window.wtc.utilities = window.wtc.utilities || {};
    */
   utilities.getStyle = function(el, prop, stripUnit){
     var strValue = "";
-    
+
     if(window.getComputedStyle) {
-      strValue = getComputedStyle(oElm).getPropertyValue(css3Prop);
+      strValue = getComputedStyle(el).getPropertyValue(prop);
     }
     //IE
-    else if (oElm.currentStyle) {
+    else if (el.currentStyle) {
       try {
-        strValue = oElm.currentStyle[css3Prop];
+        strValue = el.currentStyle[prop];
       } catch (e) {}
     }
 
