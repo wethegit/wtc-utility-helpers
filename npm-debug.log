@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/marlonmarcello/Sites/wethegit/wtc-utility-helpers',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/marlonmarcello/.npm/wtc-utility-helpers/1.0.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/marlonmarcello/.npm correctMkdir not in flight; initializing
+10 info lifecycle wtc-utility-helpers@1.0.0~prepublish: wtc-utility-helpers@1.0.0
+11 silly lifecycle wtc-utility-helpers@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/marlonmarcello/.npm/wtc-utility-helpers/1.0.0/package.tgz',
+12 verbose tar pack   '/Users/marlonmarcello/Sites/wethegit/wtc-utility-helpers' ]
+13 verbose tarball /Users/marlonmarcello/.npm/wtc-utility-helpers/1.0.0/package.tgz
+14 verbose folder /Users/marlonmarcello/Sites/wethegit/wtc-utility-helpers
+15 verbose addLocalTarball adding from inside cache /Users/marlonmarcello/.npm/wtc-utility-helpers/1.0.0/package.tgz
+16 verbose correctMkdir /Users/marlonmarcello/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd wtc-utility-helpers@1.0.0
+18 verbose afterAdd /Users/marlonmarcello/.npm/wtc-utility-helpers/1.0.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/marlonmarcello/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/marlonmarcello/.npm/wtc-utility-helpers/1.0.0/package/package.json written
+21 silly publish { name: 'wtc-utility-helpers',
+21 silly publish   version: '1.0.0',
+21 silly publish   description: 'Javascript helpers, perfect for non-jquery projects.',
+21 silly publish   main: './src/wtc-utility-helpers.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/wethegit/wtc-utility-helpers.git' },
+21 silly publish   keywords: [ 'javascript', 'helpers' ],
+21 silly publish   author: { name: 'Marlon Ugocioni Marcello' },
+21 silly publish   license: 'MIT',
+21 silly publish   bugs: { url: 'https://github.com/wethegit/wtc-utility-helpers/issues' },
+21 silly publish   homepage: 'https://github.com/wethegit/wtc-utility-helpers#readme',
+21 silly publish   readme: '# wtc-utilities\nJavascript helpers, perfect for non-jquery projects.\n## Helpers\n### getStyle\nGet the current style value from an element.\n\n* **el** [DOMNode] \'\'  \nTarget element.\n* **prop** [string] \'\'  \nCSS property name.\n* **stripUnit** [boolean] false  \nRemove units.\n* **return** [string]  \nCurrent CSS value.\n\n```javascript\nutilities.getStyle(document.getElementById(\'wrapper\'), \'padding-bottom\');\n```\n\n### log\nSimple log function to show different colors on the console.  \n\n* **status** [string] \'\'\nStatus type, each type prints a different combination set of font color and background color.  \nAvailable types are: success, info, error and warning.  \n* **msg** [string] \'\'  \nMessage to show.\n\n```javascript\nutilities.log(status, msg);\n```\n\n### once\nFires an event only once and executes the callback.\n* **node** [DOMElement] null  \nDom element to attach event.\n* **type** [String] null  \nType of event.\n* **callback** [function] null  \nCallback.\n\n```javascript\nutilities.once(node, type, callback);\n```\n\n### shuffleArray\nShuffle an array.\n* **array** [Array] null  \nArray to be shuffled.\n* **return** [array]  \nShuffled array.\n\n```javascript\nutilities.shuffleArray(array);\n```\n\n### fireCustomEvent\nFire a custom event.\n* **name** [string] null  \nName of the event.\n* **data** [object] null  \nObject to be passed to the event.\n\n```javascript\nutilities.fireCustomEvent(name, data);\n```\n\n### forEachNode\nLoop through and array of DOM elements.\n* **array** [DOMNodeList] null  \nList of elements.\n* **callback** [function]  \nCallback.\n* **scope** _optional_ [function] null  \nScope to pass to callback.\n\n```javascript\nutilities.forEachNode(array, callback, scope);\n```\n\n### getElementPosition\nGet the position of the element relative to document.\n* **element** [DOMNode] null  \nElement.\n* **returns** [object]  \nObject with element coordinates.\n\n```javascript\nutilities.getElementPosition(element);\n```\n\n### classExtend\nExtends a parent class.\n* **child** [function] null  \nChild class.\n* **parent** [function] null  \nParent class.\n* **returns** [function]  \nExtended and updated Child class\n\n```javascript\nutilities.classExtend(child, parent);\n```\n\n### hasClass\nChecks for class on element.\n* **cl** [string] null  \nClass names. Split with a _space_ to check for multiple names at once.\n* **e** [DOMElement] null  \nElement\n* **returns** [boolean] false  \nReturns true if any of the given classes is found on the element.\n\n```javascript\nutilities.hasClass(cl, e);\n```\n\n### removeClass\nRemove class from element.\n* **c** [string] null  \nName of the class. Split with a _space_ to remove multiple classes at once.\n* **e** [DOMElement] null  \nElement\n\n```javascript\nutilities.removeClass(c, e);\n```\n\n### addClass\nAdd class to element.\n* **c** [string] null  \nName of the class. Split with a _space_ to add multiple classes at once.\n* **e** [DOMElement] null  \nElement\n\n```javascript\nutilities.addClass(c, e);\n```\n\n### getSiblings\nGet siblings from element\n* **e** [DOMElement]  null  \nElement\n* **return** [DOMNodeList]\nReturns a list with the element\'s siblings.\n\n```javascript\nutilities.getSiblings(e);\n```\n\n### matches\nFunction that normalizes the selector \'matchesSelector\' across browsers.\n* **returns** [function]  \nNormalized matches function.\n\n```javascript\nutilities.matches();\n```\n\n### extend\nSimilar to jquery.extend, it appends the properties from _options_ to _default_ and overwrite the ones that already exist in _defaults_.\n* **defaults** [Object] null  \nDefault values.\n* **options** [Object] null  \nNew values to merge.\n* **returns** [Object]\nMerged object.\n\n```javascript\nutilities.extend(defaults, options);\n```\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'ccdce1b8d3d26b927d7b02a837df8d081985b1f5',
+21 silly publish   _id: 'wtc-utility-helpers@1.0.0',
+21 silly publish   _shasum: '15d5c70a567cd473badf1aed65b6f48c2dcf68eb',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name wtc-utility-helpers
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'wtc-utility-helpers',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   name: 'wtc-utility-helpers',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/wtc-utility-helpers
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/marlonmarcello/.npm/wtc-utility-helpers/1.0.0/package.tgz
+30 verbose request uri https://registry.npmjs.org/wtc-utility-helpers
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 10:56:51 AM
+33 verbose request using bearer token for auth
+34 verbose request id 57f2a5519fd81c21
+35 http request PUT https://registry.npmjs.org/wtc-utility-helpers
+36 http 403 https://registry.npmjs.org/wtc-utility-helpers
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Mon, 21 Nov 2016 18:56:51 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-sea1927-SEA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1479754611.599315,VS0,VE74',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/marlonmarcello/.npm/registry.npmjs.org/wtc-utility-helpers on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 1.0.0." : wtc-utility-helpers
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+40 verbose stack     at emitOne (events.js:101:20)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+41 verbose statusCode 403
+42 verbose pkgid wtc-utility-helpers
+43 verbose cwd /Users/marlonmarcello/Sites/wethegit/wtc-utility-helpers
+44 error Darwin 16.1.0
+45 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v6.2.2
+47 error npm  v3.9.5
+48 error code E403
+49 error "You cannot publish over the previously published version 1.0.0." : wtc-utility-helpers
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
