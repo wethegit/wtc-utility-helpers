@@ -335,4 +335,4 @@ utilities.extend = function(defaults, options) {
 
 };
 
-export default utilities;
+module.exports = utilities;

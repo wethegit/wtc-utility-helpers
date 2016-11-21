@@ -21,3 +21,5 @@ bower_components
 dev
 pub
 deploy
+lib/
+dist/

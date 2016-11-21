@@ -1,11 +1,11 @@
 {
   "name": "wtc-utility-helpers",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Javascript helpers, perfect for non-jquery projects.",
-  "main": "./src/wtc-utility-helpers.js",
+  "main": "dist/wtc-utility-helpers.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel src --out-dir lib --ignore wtc-utility-helpers.js",
+    "build": "babel src --presets babel-preset-es2015 --out-dir dist --ignore wtc-utility-helpers.js",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/wethegit/wtc-utility-helpers",
   "devDependencies": {
-    "babel-cli": "^6.18.0"
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0"
   }
 }
