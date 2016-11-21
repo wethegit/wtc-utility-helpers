@@ -1,5 +1,4 @@
-window.wtc = window.wtc || {};
-window.wtc.utilities = window.wtc.utilities || {};
+var utilities = {};
 
 (function(utilities) {
   /**
@@ -337,4 +336,19 @@ window.wtc.utilities = window.wtc.utilities || {};
 
   };
 
-}(window.wtc.utilities));
+}(utilities));
+
+// Export the object object for **Node.js**, with
+// backwards-compatibility for their old module API. If we're in
+// the browser, add `_u` as a global object.
+// (`nodeType` is checked to ensure that `module`
+// and `exports` are not HTML elements.)
+if (typeof exports != 'undefined' && !exports.nodeType) {
+  if (typeof module != 'undefined' && !module.nodeType && module.exports) {
+    exports = module.exports = utilities;
+  }
+  exports.utilities = utilities;
+} else {
+  window.wtc = window.wtc || {};
+  window.wtc.utilities = utilities;
+}

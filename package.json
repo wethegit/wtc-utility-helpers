@@ -1,0 +1,23 @@
+{
+  "name": "wtc-utility-helpers",
+  "version": "1.0.0",
+  "description": "Javascript helpers, perfect for non-jquery projects.",
+  "main": "./src/wtc-utility-helpers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wethegit/wtc-utility-helpers.git"
+  },
+  "keywords": [
+    "javascript",
+    "helpers"
+  ],
+  "author": "Marlon Ugocioni Marcello",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wethegit/wtc-utility-helpers/issues"
+  },
+  "homepage": "https://github.com/wethegit/wtc-utility-helpers#readme"
+}
