@@ -5,8 +5,8 @@
   "main": "dist/wtc-utility-helpers.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --presets babel-preset-es2015 --out-dir dist --ignore wtc-utility-helpers.js",
-    "prepublish": "npm run compile"
+    "build": "babel src/es6/ --presets babel-preset-es2015 --out-dir dist",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -14,9 +14,10 @@
   },
   "keywords": [
     "javascript",
-    "helpers"
+    "helpers",
+    "wtc"
   ],
-  "author": "Marlon Ugocioni Marcello",
+  "author": "Marlon Ugocioni Marcello <marlon@wethecollective.com> (http://wethecollective.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wethegit/wtc-utility-helpers/issues"
