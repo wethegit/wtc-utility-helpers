@@ -1,6 +1,17 @@
 var utilities = {};
 
 /**
+ * randomBetween
+ * Generate a random integer number max and min.
+ * @min {number} Minimum value.
+ * @max {number} Maximum value.
+ * return {number} Random integer.
+ */
+utilities.randomBetween = function(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+/**
  * getStyle
  * Get the current style value from an element.
  * @el {DOMNode} Target element.
