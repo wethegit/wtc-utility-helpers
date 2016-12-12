@@ -1,16 +1,30 @@
 # wtc-utilities
 Javascript helpers, perfect for non-jquery projects.
 ## Helpers
+### randomBetween
+Generate a random integer number between max and min.
+
+* **min** [Number] ''
+Minimum value.
+* **max** [Number] ''
+Maximum value.
+* **return** [Number]
+Random integer.
+
+```javascript
+utilities.randomBetween(1, 20);
+```
+
 ### getStyle
 Get the current style value from an element.
 
-* **el** [DOMNode] ''  
+* **el** [DOMNode] ''
 Target element.
-* **prop** [string] ''  
+* **prop** [string] ''
 CSS property name.
-* **stripUnit** [boolean] false  
+* **stripUnit** [boolean] false
 Remove units.
-* **return** [string]  
+* **return** [string]
 Current CSS value.
 
 ```javascript
@@ -18,12 +32,12 @@ utilities.getStyle(document.getElementById('wrapper'), 'padding-bottom');
 ```
 
 ### log
-Simple log function to show different colors on the console.  
+Simple log function to show different colors on the console.
 
 * **status** [string] ''
-Status type, each type prints a different combination set of font color and background color.  
-Available types are: success, info, error and warning.  
-* **msg** [string] ''  
+Status type, each type prints a different combination set of font color and background color.
+Available types are: success, info, error and warning.
+* **msg** [string] ''
 Message to show.
 
 ```javascript
@@ -32,11 +46,11 @@ utilities.log(status, msg);
 
 ### once
 Fires an event only once and executes the callback.
-* **node** [DOMElement] null  
+* **node** [DOMElement] null
 Dom element to attach event.
-* **type** [String] null  
+* **type** [String] null
 Type of event.
-* **callback** [function] null  
+* **callback** [function] null
 Callback.
 
 ```javascript
@@ -45,9 +59,9 @@ utilities.once(node, type, callback);
 
 ### shuffleArray
 Shuffle an array.
-* **array** [Array] null  
+* **array** [Array] null
 Array to be shuffled.
-* **return** [array]  
+* **return** [array]
 Shuffled array.
 
 ```javascript
@@ -56,9 +70,9 @@ utilities.shuffleArray(array);
 
 ### fireCustomEvent
 Fire a custom event.
-* **name** [string] null  
+* **name** [string] null
 Name of the event.
-* **data** [object] null  
+* **data** [object] null
 Object to be passed to the event.
 
 ```javascript
@@ -67,11 +81,11 @@ utilities.fireCustomEvent(name, data);
 
 ### forEachNode
 Loop through and array of DOM elements.
-* **array** [DOMNodeList] null  
+* **array** [DOMNodeList] null
 List of elements.
-* **callback** [function]  
+* **callback** [function]
 Callback.
-* **scope** _optional_ [function] null  
+* **scope** _optional_ [function] null
 Scope to pass to callback.
 
 ```javascript
@@ -80,9 +94,9 @@ utilities.forEachNode(array, callback, scope);
 
 ### getElementPosition
 Get the position of the element relative to document.
-* **element** [DOMNode] null  
+* **element** [DOMNode] null
 Element.
-* **returns** [object]  
+* **returns** [object]
 Object with element coordinates.
 
 ```javascript
@@ -91,11 +105,11 @@ utilities.getElementPosition(element);
 
 ### classExtend
 Extends a parent class.
-* **child** [function] null  
+* **child** [function] null
 Child class.
-* **parent** [function] null  
+* **parent** [function] null
 Parent class.
-* **returns** [function]  
+* **returns** [function]
 Extended and updated Child class
 
 ```javascript
@@ -104,11 +118,11 @@ utilities.classExtend(child, parent);
 
 ### hasClass
 Checks for class on element.
-* **cl** [string] null  
+* **cl** [string] null
 Class names. Split with a _space_ to check for multiple names at once.
-* **e** [DOMElement] null  
+* **e** [DOMElement] null
 Element
-* **returns** [boolean] false  
+* **returns** [boolean] false
 Returns true if any of the given classes is found on the element.
 
 ```javascript
@@ -117,9 +131,9 @@ utilities.hasClass(cl, e);
 
 ### removeClass
 Remove class from element.
-* **c** [string] null  
+* **c** [string] null
 Name of the class. Split with a _space_ to remove multiple classes at once.
-* **e** [DOMElement] null  
+* **e** [DOMElement] null
 Element
 
 ```javascript
@@ -128,9 +142,9 @@ utilities.removeClass(c, e);
 
 ### addClass
 Add class to element.
-* **c** [string] null  
+* **c** [string] null
 Name of the class. Split with a _space_ to add multiple classes at once.
-* **e** [DOMElement] null  
+* **e** [DOMElement] null
 Element
 
 ```javascript
@@ -139,7 +153,7 @@ utilities.addClass(c, e);
 
 ### getSiblings
 Get siblings from element
-* **e** [DOMElement]  null  
+* **e** [DOMElement]  null
 Element
 * **return** [DOMNodeList]
 Returns a list with the element's siblings.
@@ -150,7 +164,7 @@ utilities.getSiblings(e);
 
 ### matches
 Function that normalizes the selector 'matchesSelector' across browsers.
-* **returns** [function]  
+* **returns** [function]
 Normalized matches function.
 
 ```javascript
@@ -159,9 +173,9 @@ utilities.matches();
 
 ### extend
 Similar to jquery.extend, it appends the properties from _options_ to _default_ and overwrite the ones that already exist in _defaults_.
-* **defaults** [Object] null  
+* **defaults** [Object] null
 Default values.
-* **options** [Object] null  
+* **options** [Object] null
 New values to merge.
 * **returns** [Object]
 Merged object.
