@@ -353,7 +353,7 @@ utilities.extend = function(defaults, options) {
  * @param  {DOMElement}   el         The DOM node to find a selector for
  * @return {String}                  The CSS selector the describes exactly where to find the element
  */
-utilities.getSelectorForElement(el) {
+utilities.getSelectorForElement = function(el) {
   var particles = [];
   while (el.parentNode) {
     if (el.id) {
