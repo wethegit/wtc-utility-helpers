@@ -346,4 +346,29 @@ utilities.extend = function(defaults, options) {
 
 };
 
+/**
+ * Returns the CSS selector for a provided element
+ *
+ * @static
+ * @param  {DOMElement}   el         The DOM node to find a selector for
+ * @return {String}                  The CSS selector the describes exactly where to find the element
+ */
+utilities.getSelectorForElement(el) {
+  var particles = [];
+  while (el.parentNode) {
+    if (el.id) {
+      particles.unshift('#'+el.id);
+      break;
+    } else {
+      if (el==el.ownerDocument.documentElement) particles.unshift(el.tagName);
+      else {
+        for (var c=1,e=el;e.previousElementSibling;e=e.previousElementSibling,c++);
+        particles.unshift(el.tagName+":nth-child("+c+")");
+      }
+      el=el.parentNode;
+    }
+  }
+  return particles.join(" > ");
+}
+
 export default utilities;
