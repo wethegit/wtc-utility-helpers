@@ -372,6 +372,12 @@ utilities.extend = function(defaults, options) {
  * @return {Object}                  The extended object in full.
  */
 utilities.deepExtend = function() {
+
+  if(Object.assign) {
+    return Object.assign(...arguments);
+  }
+
+  // This is here for older browsers
   let out = arguments[0] || {};
   let i = 0;
 
