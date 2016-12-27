@@ -380,6 +380,7 @@ utilities.deepExtend = function() {
   // This is here for older browsers
   let out = arguments[0] || {};
   let i = 0;
+  let key = null;
 
   while(i++ < arguments.length) {
     let obj = arguments[i];
