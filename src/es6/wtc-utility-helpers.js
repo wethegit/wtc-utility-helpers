@@ -347,6 +347,53 @@ utilities.extend = function(defaults, options) {
 };
 
 /**
+ * Extends a base object with a series of other objects.
+ *
+ * @example
+ * objA = {a: '1', b: '2', c: '3'};
+ * objB = {d: {a: 'x', b: 'y', c: 'z'}};
+ * objC = {b: 'foo'};
+
+ * objD = utilities.deepExtend({}, objA, objB, objC);
+ * // Outputs:
+ * // [object Object] {
+ * // a: "1",
+ * // b: "foo",
+ * // c: "3",
+ * // d: [object Object] {
+ * //   a: "x",
+ * //   b: "y",
+ * //   c: "z"
+ * // }
+}
+ *
+ * @static
+ * @param  {...Object}   object      The objects to extend. The first object in the list will be the default.
+ * @return {Object}                  The extended object in full.
+ */
+utilities.deepExtend = function() {
+  let out = arguments[0] || {};
+  let i = 0;
+
+  while(i++ < arguments.length) {
+    let obj = arguments[i];
+    if(obj && typeof obj == 'object') {
+      for(key in obj) {
+        if(obj.hasOwnProperty(key)) {
+          if(typeof obj[key] == 'object' && obj[key] != null) {
+            out[key] = utilities.deepExtend(out[key], obj[key]);
+          } else {
+            out[key] = obj[key];
+          }
+        }
+      }
+    }
+  }
+
+  return out;
+}
+
+/**
  * Returns the CSS selector for a provided element
  *
  * @static
