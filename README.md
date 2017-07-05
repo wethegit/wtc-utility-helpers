@@ -183,3 +183,29 @@ Merged object.
 ```javascript
 utilities.extend(defaults, options);
 ```
+
+### FPS Measure
+This runs a small process in the background that measures the page FPS. This can be useful for determining whether a simulation is running too intensively.
+
+The object contains the following parameters, when running.
+
+- current
+  The current framerate
+- low
+  The lowest overall framerate
+- averageOverall
+  The average overall framerate
+- average60
+  The average framerate in the last 60 frames (ideally this is a second)
+
+#### Usage
+```
+let fps = utilities.getFPSMeasure();
+console.log(fps.current); // 60
+```
+
+When using this class, it is often fortiuitous to cycle it down and back up after a big FPS dip:
+```
+fps.stop();
+fps.start();
+```
