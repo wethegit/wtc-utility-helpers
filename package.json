@@ -1,6 +1,6 @@
 {
   "name": "wtc-utility-helpers",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Javascript helpers, perfect for non-jquery projects.",
   "main": "dist/wtc-utility-helpers.js",
   "scripts": {

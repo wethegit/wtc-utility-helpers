@@ -19,7 +19,7 @@ utilities.floatRandomBetween = function(min, max) {
  * return {number} Random integer.
  */
 utilities.randomBetween = function(min, max){
-  return Math.floor(utilities.floatRandomBetween());
+  return Math.floor(utilities.floatRandomBetween(min, max));
 };
 
 /**
