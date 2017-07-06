@@ -1,6 +1,20 @@
 # wtc-utilities
 Javascript helpers, perfect for non-jquery projects.
 ## Helpers
+### floatRandomBetween
+Generate a random float number between max and min.
+
+* **min** [Number] ''
+Minimum value.
+* **max** [Number] ''
+Maximum value.
+* **return** [Number]
+Random integer.
+
+```javascript
+utilities.randomBetween(-10, 20);
+```
+
 ### randomBetween
 Generate a random integer number between max and min.
 
@@ -14,6 +28,18 @@ Random integer.
 ```javascript
 utilities.randomBetween(1, 20);
 ```
+
+### lerp
+Linearly interpolate between two values by a unit interval
+
+* **x** [Number] ''
+The lower value.
+* **y** [Number] ''
+The upper value
+* **amount** [Number] ''
+Amount the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this *will* work with higher and lower values as well.
+* **return** [Number]
+The interpolated value.
 
 ### getStyle
 Get the current style value from an element.

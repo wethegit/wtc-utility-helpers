@@ -1,6 +1,17 @@
 var utilities = {};
 
 /**
+ * floatRandomBetween
+ * Generate a random float number max and min.
+ * @min {number} Minimum value.
+ * @max {number} Maximum value.
+ * return {number} Random integer.
+ */
+utilities.floatRandomBetween = function(min, max) {
+  return Math.random() * (max - min + 1) + min;
+}
+
+/**
  * randomBetween
  * Generate a random integer number max and min.
  * @min {number} Minimum value.
@@ -8,8 +19,20 @@ var utilities = {};
  * return {number} Random integer.
  */
 utilities.randomBetween = function(min, max){
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(utilities.floatRandomBetween());
 };
+
+/**
+ * lerp
+ * Linearly interpolate between two values by a unit interval
+ * @param {number} x The lower value
+ * @param {number} y The upper value
+ * @param {number} amount the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this *will* work with higher and lower values as well.
+ * @return {number} The interpolated value
+ */
+utilities.lerp = function(x, y, amount) {
+  return (1 - amount) * x + amount * y;
+}
 
 /**
  * getStyle
