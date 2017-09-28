@@ -530,6 +530,22 @@ utilities.getFPSMeasure = function() {
   return measureFPSInstance;
 }
 
+// Fix widows replaces the last space in a sentence with a non-breaking space
+// This function is a little dangerous at the moment so we should revisit it at some point in the future
+utilities.fixWidows = function(els) {
+  _els = els;
+  if(els instanceof Node) {
+    _els = [els];
+  }
+  if(_els && _els.length) {
+    for(let i = 0; i < _els.length; i++) {
+      let el = _els[i];
+      if(el instanceof Node) {
+        el.innerHTML = el.innerHTML.replace(/\s(?=[^\s]*$)/g, "&nbsp;");
+      }
+    }
+  }
+}
 
 
 export default utilities;
