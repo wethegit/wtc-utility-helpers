@@ -548,4 +548,33 @@ utilities.fixWidows = function(els) {
 }
 
 
+/**
+ * Returns the form data as an array of name/value pairs.
+ *
+ * @param  {DOMElement}   form       The <form> DOM node
+ * @return {Array}                   Serialized data
+ */
+utilities.serializeArray = function(form) {
+  let s = [];
+
+  if (typeof form == 'object' && form.nodeName == "FORM") {
+    for (let i = 0; i < form.elements.length; i++) {
+      let field = form.elements[i];
+      
+      if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
+        if (field.type == 'select-multiple') {
+          for (let j = 0; j < form.elements[i].options.length; j++) {
+            if(field.options[j].selected)
+              s[s.length] = { name: field.name, value: field.options[j].value };
+          }
+        } else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
+          s[s.length] = { name: field.name, value: field.value };
+        }
+      }
+    }
+  }
+  
+  return s;
+}
+
 export default utilities;
