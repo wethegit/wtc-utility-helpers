@@ -235,3 +235,13 @@ When using this class, it is often fortiuitous to cycle it down and back up afte
 fps.stop();
 fps.start();
 ```
+
+### Serialize
+Returns the form data as an array of name/value pairs.
+
+* **form** [DOMElement] ''
+The form element.
+
+```javascript
+utilities.serializeArray(document.getElementById('form'));
+```
