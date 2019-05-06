@@ -128,25 +128,33 @@ utilities.forEachNode = function (array, callback, scope) {
 /**
  * getElementPosition
  * Get the position of the element relative to document.
- * @element {DOM Node} Element.
+ * @element {DOMNode} Element.
+ * @property {Boolean} toWorld indicated whether the calculation of the element offset should be to the page or to the offset parent.
  * returns Object with element coordinates.
  */
-utilities.getElementPosition = function(element) {
-  var positionToViewport = element.getBoundingClientRect();
-
-  var scrollTop = window.pageYOffset;
-  var scrollLeft = window.pageXOffset;
-
-  var clientTop = document.body.clientTop || 0;
-  var clientLeft = document.body.clientLeft || 0;
-
-  var top  = positionToViewport.top +  scrollTop - clientTop;
-  var left = positionToViewport.left + scrollLeft - clientLeft;
-
-  return {
-    top: Math.round(top),
-    left: Math.round(left)
+utilities.getElementPosition = function(element, toWorld = true) {
+  const offset = {
+    top: 0,
+    left: 0
   };
+  
+  if(toWorld === false) {
+    offset.top = element.offsetTop;
+    offset.left = element.offsetLeft;
+  } else {
+    var positionToViewport = element.getBoundingClientRect();
+
+    var scrollTop = window.pageYOffset;
+    var scrollLeft = window.pageXOffset;
+
+    var clientTop = document.body.clientTop || 0;
+    var clientLeft = document.body.clientLeft || 0;
+
+    offset.top  += Math.round(positionToViewport.top +  scrollTop - clientTop);
+    offset.left += Math.round(positionToViewport.left + scrollLeft - clientLeft);
+  }
+  
+  return offset;
 };
 
 /**
