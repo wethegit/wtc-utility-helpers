@@ -113,11 +113,13 @@ utilities.fireCustomEvent = function(name, data, bubbles, cancelable) {
 /**
  * forEachNode
  * Loop through and array of DOM elements.
+ * @deprecated
  * @array {DOM Node List} List of elements.
  * @callback {function} Callback.
  * @scope *optional {function} Scope to pass to callback.
  */
-utilities.forEachNode = function (array, callback, scope) {
+e */ilities.forEachNode = function (array, callback, scope) {
+  console.warn('The forEachNode method is deprecated and will be removed. Please stop using it.');
   for (var i = 0; i < array.length; i++) {
     callback.call(scope, i, array[i]); // passes back stuff we need
   }
