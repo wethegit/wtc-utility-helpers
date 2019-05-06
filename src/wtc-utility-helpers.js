@@ -288,6 +288,32 @@ utilities.getSiblings = function(e) {
 };
 
 /**
+ * Retrieves all of the ancestors of an element, optionally to 
+ * the document body (true by default). The list that is 
+ * returned is the list of ancestors in order from the oldest
+ * to youngest.
+ * 
+ * @public
+ * @param {DOMElement} e The element to retrieve the ancestors for
+ * @param {boolean=true} toBody whether to only test to the body
+ * @param {array=} ancestors the list of already existing elements to pass. This is nromally only used internally
+ */
+utilities.getAncestors = function(e, toBody = true, ancestors) {
+  if(!ancestors) ancestors = [];
+  
+  if(toBody === true && e.parentNode === document.body) {
+    return ancestors;
+  }
+  
+  if(e.parentNode) {
+    ancestors.splice(0, 0, [e.parentNode]);
+    utilities.getAncestors(e.parentNode, toBody, ancestors);
+  }
+  
+  return ancestors;
+};
+
+/**
  * Function to normalize the selctor 'matchesSelector' across browsers
  */
 utilities.matches = function() {
