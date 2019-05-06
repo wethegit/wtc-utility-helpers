@@ -188,31 +188,6 @@ utilities.isChildOf = function(element, parentElement, toWorld = true) {
 }
 
 /**
- * classExtend
- * Extends a parent class.
- * @child {function} Child class.
- * @parent {function} Parent class.
- * returns updated Child class;
- */
-utilities.classExtend = function(child, parent) {
-  var hasProp = {}.hasOwnProperty;
-
-  for (var key in parent) {
-    if (hasProp.call(parent, key)) child[key] = parent[key];
-  }
-
-  function ctor() {
-    this.constructor = child;
-  }
-
-  ctor.prototype = parent.prototype;
-  child.prototype = new ctor();
-  child.__super__ = parent.prototype;
-
-  return child;
-};
-
-/**
  * HasClass
  * Checks for class on element.
  * @cl {string} Names. You can split the names with a space
