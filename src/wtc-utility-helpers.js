@@ -35,72 +35,6 @@ utilities.lerp = function(x, y, amount) {
 }
 
 /**
- * getStyle
- * Get the current style value from an element.
- * @el {DOMNode} Target element.
- * @prop {string} CSS property name.
- * @stripUnit {boolean} Remove units.
- * return {string} Current CSS value WITH unit.
- */
-utilities.getStyle = function(el, prop, stripUnit){
-  var strValue = "";
-
-  if(window.getComputedStyle) {
-    strValue = getComputedStyle(el).getPropertyValue(prop);
-  }
-  //IE
-  else if (el.currentStyle) {
-    try {
-      strValue = el.currentStyle[prop];
-    } catch (e) {}
-  }
-
-  if (stripUnit) {
-    strValue = parseInt(strValue);
-  }
-
-  return strValue;
-};
-
-/**
- * Log
- * Simple log function to show different colors on the console.
- * @status {string} Status type.
- * @msg {string} Message to show.
- */
-utilities.log = function(status, msg) {
-  var bgc, color;
-
-  switch (status) {
-    case "success":
-      color = "Green";
-      bgc = "LimeGreen";
-      break;
-    case "info":
-      color = "DodgerBlue";
-      bgc = "Turquoise";
-      break;
-    case "error":
-      color = "Black";
-      bgc = "Red";
-      break;
-    case "warning":
-      color = "Tomato";
-      bgc = "Gold";
-      break;
-    default:
-      color = "black";
-      bgc = "White";
-  }
-
-  if (typeof msg === "object") {
-    console.log(msg);
-  } else {
-    console.log("%c" + msg, "color:" + color + ";font-weight:bold; background-color: " + bgc + ";");
-  }
-};
-
-/**
  * once
  * Fires an event only once and executes the callback.
  * @node {DOMElement} Dom element to attach event.
@@ -118,10 +52,19 @@ utilities.once = function(node, type, callback) {
  * shuffleArray
  * Shuffle an array.
  * @array Arrray to be shuffled.
+ * @param {Bool} modifyOriginal A boolean indicating whether the original array should be modified or whether a copy should be created.
  * return {array} Shuffled array.
  */
-utilities.shuffleArray = function(array) {
+utilities.shuffleArray = function(array, modifyOriginal = true) {
   var currentIndex = array.length, temporaryValue, randomIndex;
+  
+  // destructuring this to essentially clone the array
+  // this will not clone array values, which shouldn't
+  // matter. But if it does, in your case, then now
+  // you know why.
+  if(modifyOriginal === false) {
+    [...array] = array;
+  }
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
