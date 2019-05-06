@@ -188,18 +188,6 @@ utilities.isChildOf = function(element, parentElement, toWorld = true) {
 }
 
 /**
- * getViewportDimensions
- * Get the browser window size.
- * retuns Object with dimensions.
- */
-utilities.getViewportDimensions = function() {
-  return {
-    width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-    height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-  };
-};
-
-/**
  * classExtend
  * Extends a parent class.
  * @child {function} Child class.
