@@ -113,7 +113,7 @@ utilities.fireCustomEvent = function(name, data, bubbles, cancelable) {
 /**
  * forEachNode
  * Loop through and array of DOM elements.
- * @deprecated
+ * @deprecated since version 2.0
  * @array {DOM Node List} List of elements.
  * @callback {function} Callback.
  * @scope *optional {function} Scope to pass to callback.
@@ -190,10 +190,12 @@ utilities.isChildOf = function(element, parentElement, toWorld = true) {
 /**
  * HasClass
  * Checks for class on element.
+ * @deprecated since version 2.0
  * @cl {string} Names. You can split the names with a space
  * @e {DOM Element} Element
  */
 utilities.hasClass = function(cl, e) {
+  console.warn('The HasClass method is deprecated and will be removed. Please stop using it.');
 
   var c, classes, i, j, len, len1;
   classes = cl.split(' ');
@@ -221,10 +223,12 @@ utilities.hasClass = function(cl, e) {
 /**
  * RemoveClass
  * Remove class from element.
+ * @deprecated since version 2.0
  * @c {string} name of the class
  * @e {DOM Element} Element
  */
 utilities.removeClass = function(c, e) {
+  console.warn('The removeClass method is deprecated and will be removed. Please stop using it.');
 
   var classes, i, j, len, len1;
   classes = c.split(' ');
@@ -245,10 +249,12 @@ utilities.removeClass = function(c, e) {
 /**
  * AddClass
  * Add class to element.
+ * @deprecated since version 2.0
  * @c {string} Name of the class
  * @e {DOM Element} Element
  */
 utilities.addClass = function(c, e) {
+  console.warn('The addClass method is deprecated and will be removed. Please stop using it.');
 
   var classes, i, j, len, len1;
   classes = c.split(' ');
