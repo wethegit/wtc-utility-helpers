@@ -158,6 +158,36 @@ utilities.getElementPosition = function(element, toWorld = true) {
 };
 
 /**
+ * Determines whether the element is a child 0 ancestor of the other.
+ * If the toWorld flag is true (default), this will test recursively
+ * up the node hierarchy.
+ * 
+ * This method can be used to determine whether a node is detached
+ * by something like:
+ * ```
+ * attached = utilities.isChildOf(element, document.body);
+ * ```
+ * @public
+ * @param {DomNode} element The element to test with
+ * @param {DomNode} parentElement The parent element to test against
+ * @param {Boolean=true} toWorld Whether to test this up the DOM hierarchy
+ * @return {Boolean} true is the parentElement is parent (or ancestor) to Element
+ */
+utilities.isChildOf = function(element, parentElement, toWorld = true) {
+  let isChildOf = false;
+  if(element.parentNode === parentElement) {
+    isChildOf = true;
+  }
+  if(
+    toWorld === true && 
+    isChildOf === false && 
+    element.parentNode) {
+    isChildOf = utilities.isChildOf(element.parentNode, parentElement);
+  }
+  return isChildOf;
+}
+
+/**
  * getViewportDimensions
  * Get the browser window size.
  * retuns Object with dimensions.
