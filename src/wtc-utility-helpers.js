@@ -1,30 +1,45 @@
 var utilities = {};
 
 /**
- * floatRandomBetween
  * Generate a random float number max and min.
- * @min {number} Minimum value.
- * @max {number} Maximum value.
- * return {number} Random integer.
+ * 
+ * ```javascript
+ * utilities.randomBetween(-10, 20); // 12.513
+ * ```
+ * 
+ * @public
+ * @param {number} min Minimum value.
+ * @param {number} max Maximum value.
+ * @return {number} Random number.
  */
 utilities.floatRandomBetween = function(min, max) {
   return Math.random() * (max - min + 1) + min;
 }
 
 /**
- * randomBetween
  * Generate a random integer number max and min.
- * @min {number} Minimum value.
- * @max {number} Maximum value.
- * return {number} Random integer.
+ * 
+ * ```javascript
+ * utilities.randomBetween(-10, 20); // 12
+ * ```
+ * 
+ * @public
+ * @param {number} min Minimum value.
+ * @param {number} max Maximum value.
+ * @return {number} Random number.
  */
 utilities.randomBetween = function(min, max){
   return Math.floor(utilities.floatRandomBetween(min, max));
 };
 
 /**
- * lerp
  * Linearly interpolate between two values by a unit interval
+ * 
+ * ```javascript
+ * utilities.lerp(100, 200, .5); // 150
+ * ```
+ * 
+ * @public
  * @param {number} x The lower value
  * @param {number} y The upper value
  * @param {number} amount the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this *will* work with higher and lower values as well.
@@ -35,11 +50,16 @@ utilities.lerp = function(x, y, amount) {
 }
 
 /**
- * once
  * Fires an event only once and executes the callback.
- * @node {DOMElement} Dom element to attach event.
- * @type {String} Type of event.
- * @callback {function} Callback.
+ * 
+ * ```javascript
+ * utilities.once(node, type, callback);
+ * ```
+ * 
+ * @public
+ * @param {DOMElement} node Dom element to attach event.
+ * @param {String} type Type of event.
+ * @param {function} callback Callback.
  */
 utilities.once = function(node, type, callback) {
   node.addEventListener(type, function(e){
@@ -49,11 +69,12 @@ utilities.once = function(node, type, callback) {
 };
 
 /**
- * shuffleArray
  * Shuffle an array.
- * @array Arrray to be shuffled.
- * @param {Bool} modifyOriginal A boolean indicating whether the original array should be modified or whether a copy should be created.
- * return {array} Shuffled array.
+ * 
+ * @public
+ * @param {Array} array Arrray to be shuffled.
+ * @param {Boolean=} modifyOriginal A boolean indicating whether the original array should be modified or whether a copy should be created. (default True)
+ * @return {array} Shuffled array.
  */
 utilities.shuffleArray = function(array, modifyOriginal = true) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -83,10 +104,17 @@ utilities.shuffleArray = function(array, modifyOriginal = true) {
 };
 
 /**
- * fireCustomEvent
  * Fire a custom event.
- * @name {string} Name of the event.
- * @data {object} Object to be passed to the event.
+ * 
+ * ```javascript
+ * utilities.fireCustomEvent(name, data);
+ * ```
+ * 
+ * @public
+ * @param {string} name Name of the event.
+ * @param {object} data Object to be passed to the event.
+ * @param {Boolean=} bubbles Indicates whether the event bubbles (default True)
+ * @param {Boolean=} cancelable Indicates whether the event is cancellable  default True)
  */
 utilities.fireCustomEvent = function(name, data, bubbles, cancelable) {
   var ev;
@@ -111,12 +139,17 @@ utilities.fireCustomEvent = function(name, data, bubbles, cancelable) {
 };
 
 /**
- * forEachNode
  * Loop through and array of DOM elements.
- * @deprecated since version 2.0
- * @array {DOM Node List} List of elements.
- * @callback {function} Callback.
- * @scope *optional {function} Scope to pass to callback.
+ * 
+ * ```javascript
+ * utilities.forEachNode(array, callback, scope);
+ * ```
+ * 
+ * @public
+ * @deprecated since version 2.0 - this really only exists anymore because of IE11
+ * @param {DOMNodeList} array List of elements.
+ * @param {function} callback Callback.
+ * @param {function=} scope Scope to pass to callback.
  */
 utilities.forEachNode = function (array, callback, scope) {
   console.warn('The forEachNode is deprecated and will be removed. Please stop using it.');
@@ -126,11 +159,16 @@ utilities.forEachNode = function (array, callback, scope) {
 };
 
 /**
- * getElementPosition
- * Get the position of the element relative to document.
- * @element {DOMNode} Element.
- * @property {Boolean} toWorld indicated whether the calculation of the element offset should be to the page or to the offset parent.
- * returns Object with element coordinates.
+ * Get the position of the element relative to document or optionally to the nearest offset parent.
+ * 
+ * ```javascript
+ * utilities.getElementPosition(element); // returns something like { top: 100, left: 500 }
+ * ```
+ * 
+ * @public
+ * @param {DOMNode} element Element.
+ * @param {Boolean=} toWorld indicates whether the calculation of the element offset should be to the page or to the offset parent. (default True)
+ * @returns {Object} the element coordinates.
  */
 utilities.getElementPosition = function(element, toWorld = true) {
   const offset = {
@@ -170,7 +208,7 @@ utilities.getElementPosition = function(element, toWorld = true) {
  * @public
  * @param {DomNode} element The element to test with
  * @param {DomNode} parentElement The parent element to test against
- * @param {Boolean=true} toWorld Whether to test this up the DOM hierarchy
+ * @param {Boolean=} toWorld Whether to test this up the DOM hierarchy
  * @return {Boolean} true is the parentElement is parent (or ancestor) to Element
  */
 utilities.isChildOf = function(element, parentElement, toWorld = true) {
@@ -188,11 +226,13 @@ utilities.isChildOf = function(element, parentElement, toWorld = true) {
 }
 
 /**
- * HasClass
  * Checks for class on element.
+ * 
+ * @public
  * @deprecated since version 2.0
- * @cl {string} Names. You can split the names with a space
- * @e {DOM Element} Element
+ * @param {string} cl Names. You can split the names with a space
+ * @param {DOMElement} e Element
+ * @return {Boolean} true is the element class string contains the provided class names
  */
 utilities.hasClass = function(cl, e) {
   console.warn('The HasClass method is deprecated and will be removed. Please stop using it.');
@@ -221,11 +261,12 @@ utilities.hasClass = function(cl, e) {
 };
 
 /**
- * RemoveClass
  * Remove class from element.
+ * 
+ * @public
  * @deprecated since version 2.0
- * @c {string} name of the class
- * @e {DOM Element} Element
+ * @param {string} c name of the class
+ * @param {DOMElement} e Element
  */
 utilities.removeClass = function(c, e) {
   console.warn('The removeClass method is deprecated and will be removed. Please stop using it.');
@@ -247,11 +288,12 @@ utilities.removeClass = function(c, e) {
 };
 
 /**
- * AddClass
  * Add class to element.
+ * 
+ * @public
  * @deprecated since version 2.0
- * @c {string} Name of the class
- * @e {DOM Element} Element
+ * @param {string} c Name of the class
+ * @param {DOMElement} e Element
  */
 utilities.addClass = function(c, e) {
   console.warn('The addClass method is deprecated and will be removed. Please stop using it.');
@@ -274,10 +316,14 @@ utilities.addClass = function(c, e) {
 };
 
 /**
- * GetSiblings
  * Get siblings from element
- * @e {DOM Element} Element
- * @return Array of DOM Elements
+ * 
+ * ```javascript
+ * utilities.getSiblings(e);
+ * ```
+ * 
+ * @param {DOMElement} e Element
+ * @return Returns a list with the element's siblings.
  */
 utilities.getSiblings = function(e) {
 
@@ -295,7 +341,7 @@ utilities.getSiblings = function(e) {
  * 
  * @public
  * @param {DOMElement} e The element to retrieve the ancestors for
- * @param {boolean=true} toBody whether to only test to the body
+ * @param {boolean=} toBody whether to only test to the body (default True)
  * @param {array=} ancestors the list of already existing elements to pass. This is nromally only used internally
  */
 utilities.getAncestors = function(e, toBody = true, ancestors) {
@@ -328,7 +374,7 @@ utilities.matches = function() {
 /**
  * Returns the CSS selector for a provided element
  *
- * @static
+ * @public
  * @param  {DOMElement}   el         The DOM node to find a selector for
  * @return {String}                  The CSS selector the describes exactly where to find the element
  */
