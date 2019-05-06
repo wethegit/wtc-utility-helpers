@@ -96,6 +96,10 @@ utilities.fireCustomEvent = function(name, data, bubbles, cancelable) {
     detail: data || null
   };
 
+  // In IE11 window.CustomEvent exists but cannot be called as a constructor.
+  // Therefor, for IE11, you need to fall back to document.createEvent('CustomEvent')
+  // When we stop supporting IE11, this can all be simplified to:
+  // | ev = new CustomEvent(name, params);
   if (typeof window.CustomEvent === "function") {
     ev = new CustomEvent(name, params);
   } else {
