@@ -1,247 +1,457 @@
-# wtc-utilities
-Javascript helpers, perfect for non-jquery projects.
-## Helpers
-### floatRandomBetween
-Generate a random float number between max and min.
+# [wtc-utility-helpers](https://github.com/wethegit/wtc-utility-helpers) *2.0.0*
 
-* **min** [Number] ''
-Minimum value.
-* **max** [Number] ''
-Maximum value.
-* **return** [Number]
-Random integer.
+> Javascript helpers, perfect for non-jquery projects.
 
-```javascript
-utilities.randomBetween(-10, 20);
-```
 
-### randomBetween
-Generate a random integer number between max and min.
+### src/wtc-utility-helpers.js
 
-* **min** [Number] ''
-Minimum value.
-* **max** [Number] ''
-Maximum value.
-* **return** [Number]
-Random integer.
+
+#### utilities.floatRandomBetween(min, max) 
+
+Generate a random float number max and min.
 
 ```javascript
-utilities.randomBetween(1, 20);
+utilities.randomBetween(-10, 20); // 12.513
 ```
 
-### lerp
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| min | `number`  | Minimum value. | &nbsp; |
+| max | `number`  | Maximum value. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `number`  Random number.
+
+
+
+#### utilities.randomBetween(min, max) 
+
+Generate a random integer number max and min.
+
+```javascript
+utilities.randomBetween(-10, 20); // 12
+```
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| min | `number`  | Minimum value. | &nbsp; |
+| max | `number`  | Maximum value. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `number`  Random number.
+
+
+
+#### utilities.lerp(x, y, amount) 
+
 Linearly interpolate between two values by a unit interval
 
-* **x** [Number] ''
-The lower value.
-* **y** [Number] ''
-The upper value
-* **amount** [Number] ''
-Amount the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this *will* work with higher and lower values as well.
-* **return** [Number]
-The interpolated value.
-
-### getStyle
-Get the current style value from an element.
-
-* **el** [DOMNode] ''
-Target element.
-* **prop** [string] ''
-CSS property name.
-* **stripUnit** [boolean] false
-Remove units.
-* **return** [string]
-Current CSS value.
-
 ```javascript
-utilities.getStyle(document.getElementById('wrapper'), 'padding-bottom');
+utilities.lerp(100, 200, .5); // 150
 ```
 
-### log
-Simple log function to show different colors on the console.
 
-* **status** [string] ''
-Status type, each type prints a different combination set of font color and background color.
-Available types are: success, info, error and warning.
-* **msg** [string] ''
-Message to show.
 
-```javascript
-utilities.log(status, msg);
-```
 
-### once
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| x | `number`  | The lower value | &nbsp; |
+| y | `number`  | The upper value | &nbsp; |
+| amount | `number`  | the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this *will* work with higher and lower values as well. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `number`  The interpolated value
+
+
+
+#### utilities.once(node, type, callback) 
+
 Fires an event only once and executes the callback.
-* **node** [DOMElement] null
-Dom element to attach event.
-* **type** [String] null
-Type of event.
-* **callback** [function] null
-Callback.
 
 ```javascript
 utilities.once(node, type, callback);
 ```
 
-### shuffleArray
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| node | `DOMElement`  | Dom element to attach event. | &nbsp; |
+| type | `String`  | Type of event. | &nbsp; |
+| callback | `function`  | Callback. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### utilities.shuffleArray(array[, modifyOriginal]) 
+
 Shuffle an array.
-* **array** [Array] null
-Array to be shuffled.
-* **return** [array]
-Shuffled array.
 
-```javascript
-utilities.shuffleArray(array);
-```
 
-### fireCustomEvent
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| array | `Array`  | Arrray to be shuffled. | &nbsp; |
+| modifyOriginal | `Boolean`  | A boolean indicating whether the original array should be modified or whether a copy should be created. (default True) | *Optional* |
+
+
+
+
+##### Returns
+
+
+- `array`  Shuffled array.
+
+
+
+#### utilities.fireCustomEvent(name, data[, bubbles, cancelable]) 
+
 Fire a custom event.
-* **name** [string] null
-Name of the event.
-* **data** [object] null
-Object to be passed to the event.
 
 ```javascript
 utilities.fireCustomEvent(name, data);
 ```
 
-### forEachNode
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| name | `string`  | Name of the event. | &nbsp; |
+| data | `object`  | Object to be passed to the event. | &nbsp; |
+| bubbles | `Boolean`  | Indicates whether the event bubbles (default True) | *Optional* |
+| cancelable | `Boolean`  | Indicates whether the event is cancellable default True) | *Optional* |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### utilities.forEachNode(array, callback[, scope]) 
+
 Loop through and array of DOM elements.
-* **array** [DOMNodeList] null
-List of elements.
-* **callback** [function]
-Callback.
-* **scope** _optional_ [function] null
-Scope to pass to callback.
 
 ```javascript
 utilities.forEachNode(array, callback, scope);
 ```
 
-### getElementPosition
-Get the position of the element relative to document.
-* **element** [DOMNode] null
-Element.
-* **returns** [object]
-Object with element coordinates.
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| array | `DOMNodeList`  | List of elements. | &nbsp; |
+| callback | `function`  | Callback. | &nbsp; |
+| scope | `function`  | Scope to pass to callback. | *Optional* |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### utilities.getElementPosition(element[, toWorld]) 
+
+Get the position of the element relative to document or optionally to the nearest offset parent.
 
 ```javascript
-utilities.getElementPosition(element);
+utilities.getElementPosition(element); // returns something like { top: 100, left: 500 }
 ```
 
-### classExtend
-Extends a parent class.
-* **child** [function] null
-Child class.
-* **parent** [function] null
-Parent class.
-* **returns** [function]
-Extended and updated Child class
 
-```javascript
-utilities.classExtend(child, parent);
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| element | `DOMNode`  | Element. | &nbsp; |
+| toWorld | `Boolean`  | indicates whether the calculation of the element offset should be to the page or to the offset parent. (default True) | *Optional* |
+
+
+
+
+##### Returns
+
+
+- `Object`  the element coordinates.
+
+
+
+#### utilities.isChildOf(element, parentElement[, toWorld]) 
+
+Determines whether the element is a child 0 ancestor of the other.
+If the toWorld flag is true (default), this will test recursively
+up the node hierarchy.
+
+This method can be used to determine whether a node is detached
+by something like:
+```
+attached = utilities.isChildOf(element, document.body);
 ```
 
-### hasClass
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| element | `DomNode`  | The element to test with | &nbsp; |
+| parentElement | `DomNode`  | The parent element to test against | &nbsp; |
+| toWorld | `Boolean`  | Whether to test this up the DOM hierarchy | *Optional* |
+
+
+
+
+##### Returns
+
+
+- `Boolean`  true is the parentElement is parent (or ancestor) to Element
+
+
+
+#### utilities.hasClass(cl, e) 
+
 Checks for class on element.
-* **cl** [string] null
-Class names. Split with a _space_ to check for multiple names at once.
-* **e** [DOMElement] null
-Element
-* **returns** [boolean] false
-Returns true if any of the given classes is found on the element.
 
-```javascript
-utilities.hasClass(cl, e);
-```
 
-### removeClass
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| cl | `string`  | Names. You can split the names with a space | &nbsp; |
+| e | `DOMElement`  | Element | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Boolean`  true is the element class string contains the provided class names
+
+
+
+#### utilities.removeClass(c, e) 
+
 Remove class from element.
-* **c** [string] null
-Name of the class. Split with a _space_ to remove multiple classes at once.
-* **e** [DOMElement] null
-Element
 
-```javascript
-utilities.removeClass(c, e);
-```
 
-### addClass
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| c | `string`  | name of the class | &nbsp; |
+| e | `DOMElement`  | Element | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### utilities.addClass(c, e) 
+
 Add class to element.
-* **c** [string] null
-Name of the class. Split with a _space_ to add multiple classes at once.
-* **e** [DOMElement] null
-Element
 
-```javascript
-utilities.addClass(c, e);
-```
 
-### getSiblings
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| c | `string`  | Name of the class | &nbsp; |
+| e | `DOMElement`  | Element | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### utilities.getSiblings(e) 
+
 Get siblings from element
-* **e** [DOMElement]  null
-Element
-* **return** [DOMNodeList]
-Returns a list with the element's siblings.
 
 ```javascript
 utilities.getSiblings(e);
 ```
 
-### matches
-Function that normalizes the selector 'matchesSelector' across browsers.
-* **returns** [function]
-Normalized matches function.
 
-```javascript
-utilities.matches();
-```
 
-### extend
-Similar to jquery.extend, it appends the properties from _options_ to _default_ and overwrite the ones that already exist in _defaults_.
-* **defaults** [Object] null
-Default values.
-* **options** [Object] null
-New values to merge.
-* **returns** [Object]
-Merged object.
 
-```javascript
-utilities.extend(defaults, options);
-```
+##### Parameters
 
-### FPS Measure
-This runs a small process in the background that measures the page FPS. This can be useful for determining whether a simulation is running too intensively.
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| e | `DOMElement`  | Element | &nbsp; |
 
-The object contains the following parameters, when running.
 
-- current
-  The current framerate
-- low
-  The lowest overall framerate
-- averageOverall
-  The average overall framerate
-- average60
-  The average framerate in the last 60 frames (ideally this is a second)
 
-#### Usage
-```
-let fps = utilities.getFPSMeasure();
-console.log(fps.current); // 60
-```
 
-When using this class, it is often fortiuitous to cycle it down and back up after a big FPS dip:
-```
-fps.stop();
-fps.start();
-```
+##### Returns
 
-### Serialize
+
+-  Returns a list with the element's siblings.
+
+
+
+#### utilities.getAncestors(e[, toBody, ancestors]) 
+
+Retrieves all of the ancestors of an element, optionally to 
+the document body (true by default). The list that is 
+returned is the list of ancestors in order from the oldest
+to youngest.
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| e | `DOMElement`  | The element to retrieve the ancestors for | &nbsp; |
+| toBody | `boolean`  | whether to only test to the body (default True) | *Optional* |
+| ancestors | `array`  | the list of already existing elements to pass. This is nromally only used internally | *Optional* |
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### utilities.matches() 
+
+Function to normalize the selctor 'matchesSelector' across browsers
+
+
+
+
+
+
+##### Returns
+
+
+- `Void`
+
+
+
+#### utilities.getSelectorForElement(el) 
+
+Returns the CSS selector for a provided element
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| el | `DOMElement`  | The DOM node to find a selector for | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `String`  The CSS selector the describes exactly where to find the element
+
+
+
+#### utilities.serializeArray(form) 
+
 Returns the form data as an array of name/value pairs.
 
-* **form** [DOMElement] ''
-The form element.
 
-```javascript
-utilities.serializeArray(document.getElementById('form'));
-```
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| form | `DOMElement`  | The <form> DOM node | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Array`  Serialized data
+
+
+
+
+*Documentation generated with [doxdox](https://github.com/neogeek/doxdox).*
