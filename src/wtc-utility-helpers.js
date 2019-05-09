@@ -4,7 +4,7 @@ var utilities = {};
  * Generate a random float number max and min.
  * 
  * ```javascript
- * utilities.randomBetween(-10, 20); // 12.513
+ * utilities.floatRandomBetween(-10, 20); // 12.513
  * ```
  * 
  * @public

@@ -177,8 +177,13 @@ utilities.fireCustomEvent = function (name, data, bubbles, cancelable) {
  */
 
 
+var deprecationWarning_forEachNode = false;
+
 utilities.forEachNode = function (array, callback, scope) {
-  console.warn('The forEachNode is deprecated and will be removed. Please stop using it.');
+  if (deprecationWarning_forEachNode === false) {
+    deprecationWarning_forEachNode = true;
+    console.warn('The forEachNode is deprecated and will be removed. Please stop using it.');
+  }
 
   for (var i = 0; i < array.length; i++) {
     callback.call(scope, i, array[i]); // passes back stuff we need
@@ -263,8 +268,14 @@ utilities.isChildOf = function (element, parentElement) {
  */
 
 
+var deprecationWarning_hasClass = false;
+
 utilities.hasClass = function (cl, e) {
-  console.warn('The HasClass method is deprecated and will be removed. Please stop using it.');
+  if (deprecationWarning_hasClass === false) {
+    deprecationWarning_hasClass = true;
+    console.warn('The HasClass method is deprecated and will be removed. Please stop using it.');
+  }
+
   var c, classes, i, j, len, len1;
   classes = cl.split(' ');
 
@@ -298,8 +309,14 @@ utilities.hasClass = function (cl, e) {
  */
 
 
+var deprecationWarning_removeClass = false;
+
 utilities.removeClass = function (c, e) {
-  console.warn('The removeClass method is deprecated and will be removed. Please stop using it.');
+  if (deprecationWarning_removeClass === false) {
+    deprecationWarning_removeClass = true;
+    console.warn('The removeClass method is deprecated and will be removed. Please stop using it.');
+  }
+
   var classes, i, j, len, len1;
   classes = c.split(' ');
 
@@ -325,8 +342,14 @@ utilities.removeClass = function (c, e) {
  */
 
 
+var deprecationWarning_addClass = false;
+
 utilities.addClass = function (c, e) {
-  console.warn('The addClass method is deprecated and will be removed. Please stop using it.');
+  if (deprecationWarning_addClass === false) {
+    deprecationWarning_addClass = true;
+    console.warn('The addClass method is deprecated and will be removed. Please stop using it.');
+  }
+
   var classes, i, j, len, len1;
   classes = c.split(' ');
 
