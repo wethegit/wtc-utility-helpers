@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'es5-bundle.js',
-    library: 'WTCGL'
+    library: 'WTC_UTILS'
   },
   module: {
     rules: [
@@ -19,7 +19,8 @@ module.exports = {
             "targets": {
               "browsers": ["last 2 versions", "ie >= 11"]
             },
-            useBuiltIns: "usage"
+            useBuiltIns: "usage",
+            corejs: 3,
           }]]
         }
       }
