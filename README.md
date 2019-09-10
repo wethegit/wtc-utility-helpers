@@ -11,7 +11,7 @@
 Generate a random float number max and min.
 
 ```javascript
-utilities.randomBetween(-10, 20); // 12.513
+utilities.floatRandomBetween(-10, 20); // 12.513
 ```
 
 
@@ -174,7 +174,7 @@ utilities.fireCustomEvent(name, data);
 
 
 
-#### utilities.forEachNode(array, callback[, scope]) 
+#### deprecationWarning_forEachNode(array, callback[, scope]) 
 
 Loop through and array of DOM elements.
 
@@ -264,7 +264,7 @@ attached = utilities.isChildOf(element, document.body);
 
 
 
-#### utilities.hasClass(cl, e) 
+#### deprecationWarning_hasClass(cl, e) 
 
 Checks for class on element.
 
@@ -288,7 +288,7 @@ Checks for class on element.
 
 
 
-#### utilities.removeClass(c, e) 
+#### deprecationWarning_removeClass(c, e) 
 
 Remove class from element.
 
@@ -312,7 +312,7 @@ Remove class from element.
 
 
 
-#### utilities.addClass(c, e) 
+#### deprecationWarning_addClass(c, e) 
 
 Add class to element.
 
@@ -450,6 +450,74 @@ Returns the form data as an array of name/value pairs.
 
 
 - `Array`  Serialized data
+
+
+
+#### utilities.createIntersectionObserver([options]) 
+
+Creates an IntersectionObserver object, and sets it up to fire the provided functions when necessary.
+
+```javascript
+const myObserver = utilities.createIntersectionObserver({
+  config: {
+    rootMargin: '0px 0px 400px 0px'
+  },
+  onIntersect: myIntersectFunction,
+  onLeave: myLeaveFunction,
+  once: true
+});
+```
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| options | `Object`  | = {config: {}, onIntersect: null, onLeave: null, once: false}] - All the options to be passed to the IntersectionObserver. | *Optional* |
+| options.config | `Object`  | = {}] - An IntersectionObserver config object, per the standard browser API. | *Optional* |
+| options.onIntersect | `Function`  | = null] - A function to invoke on intersect. | *Optional* |
+| options.onLeave | `Function`  | = null] - A function to invoke on leave. | *Optional* |
+| options.once | `Boolean`  | = false] - True if the observer should unobserve when it's no longer intersecting. | *Optional* |
+
+
+
+
+##### Returns
+
+
+- `IntersectionObserver`  - IntersectionObserver instance.
+
+
+
+#### utilities.attachIntersectionObserver(observer, elements) 
+
+Hooks up an IntersectionObserver object with a set of DOM elements.
+
+```js
+// We'll assume the variable myObserver references an IntersectionObserver object.
+const elements = document.querySelectorAll('.lazy-load');
+utilities.attachIntersectionObserver(myObserver, elements);
+```
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| observer | `IntersectionObserver`  | - The observer to attach to the specified DOM elements. | &nbsp; |
+| elements | `HTMLCollection` `NodeList`  | - A list of DOM elements to attach the observer to. | &nbsp; |
+
+
+
+
+##### Returns
+
+
+- `Void`
 
 
 

@@ -459,4 +459,79 @@ utilities.serializeArray = function(form) {
   return s;
 }
 
+
+/**
+ * Creates an IntersectionObserver object, and sets it up to fire the provided functions when necessary.
+ * 
+ * ```javascript
+ * const myObserver = utilities.createIntersectionObserver({
+ *   config: {
+ *     rootMargin: '0px 0px 400px 0px'
+ *   },
+ *   onIntersect: myIntersectFunction,
+ *   onLeave: myLeaveFunction,
+ *   once: true
+ * });
+ * ```
+ * 
+ * @public
+ * @param {Object}    [options = {config: {}, onIntersect: null, onLeave: null, once: false}] - All the options to be passed to the IntersectionObserver.
+ * @param {Object}    [options.config = {}] - An IntersectionObserver config object, per the standard browser API.
+ * @param {Function}  [options.onIntersect = null] - A function to invoke on intersect.
+ * @param {Function}  [options.onLeave = null] - A function to invoke on leave.
+ * @param {Boolean}   [options.once = false] - True if the observer should unobserve when it's no longer intersecting.
+ * @returns {IntersectionObserver} - IntersectionObserver instance.
+ */
+utilities.createIntersectionObserver = function({ config = {}, onIntersect = null, onLeave = null, once = false }) {
+  let observerConfig = {
+    root: null,
+    rootMargin: '0px 0px 0px 0px',
+    threshold: 0
+  }
+
+  Object.assign(observerConfig, config);
+
+  const observer = new IntersectionObserver((entries, self) => {
+    entries.forEach((entry) => {
+      if (onIntersect && entry.isIntersecting) {
+        onIntersect(entry.target);
+        if (once) self.unobserve(entry.target);
+      } else if (onLeave && !entry.isIntersecting) {
+        onLeave(entry.target);
+      }
+    });
+  }, observerConfig);
+
+  return observer;
+}
+
+/**
+ * Hooks up an IntersectionObserver object with a set of DOM elements.
+ * 
+ * ```js
+ * // We'll assume the variable myObserver references an IntersectionObserver object.
+ * const elements = document.querySelectorAll('.lazy-load');
+ * utilities.attachIntersectionObserver(myObserver, elements);
+ * ```
+ * 
+ * @public
+ * @param {IntersectionObserver}    observer - The observer to attach to the specified DOM elements.
+ * @param {HTMLCollection|NodeList} elements - A list of DOM elements to attach the observer to.
+ */
+utilities.attachIntersectionObserver = function(observer, elements) {
+  if (observer instanceof IntersectionObserver) {
+    if (elements instanceof HTMLCollection || elements instanceof NodeList) {
+      for (let item of elements) {
+        observer.observe(item);
+      }
+    } else {
+      console.error('"elements" argument must be an HTMLCollection or a NodeList.');
+      return;
+    }
+  } else {
+    console.error('"observer" argument must be of type IntersectionObserver.');
+    return;
+  }
+};
+
 export default utilities;
