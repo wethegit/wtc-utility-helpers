@@ -31,10 +31,9 @@
     "@babel/preset-env": "^7.2.3",
     "babel-loader": "^8.0.5",
     "core-js": "^3.2.1",
+    "doxdox": "^3.0.0",
+    "jsdoc-to-markdown": "^5.0.1",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1"
-  },
-  "dependencies": {
-    "jsdoc-to-markdown": "^5.0.1"
   }
 }
