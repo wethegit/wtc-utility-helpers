@@ -1,4 +1,4 @@
-# [wtc-utility-helpers](https://github.com/wethegit/wtc-utility-helpers) *2.0.0*
+# [wtc-utility-helpers](https://github.com/wethegit/wtc-utility-helpers) *2.1.0*
 
 > Javascript helpers, perfect for non-jquery projects.
 
@@ -174,7 +174,7 @@ utilities.fireCustomEvent(name, data);
 
 
 
-#### utilities.forEachNode(array, callback[, scope]) 
+#### deprecationWarning_forEachNode(array, callback[, scope]) 
 
 Loop through and array of DOM elements.
 
@@ -264,7 +264,7 @@ attached = utilities.isChildOf(element, document.body);
 
 
 
-#### utilities.hasClass(cl, e) 
+#### deprecationWarning_hasClass(cl, e) 
 
 Checks for class on element.
 
@@ -288,7 +288,7 @@ Checks for class on element.
 
 
 
-#### utilities.removeClass(c, e) 
+#### deprecationWarning_removeClass(c, e) 
 
 Remove class from element.
 
@@ -312,7 +312,7 @@ Remove class from element.
 
 
 
-#### utilities.addClass(c, e) 
+#### deprecationWarning_addClass(c, e) 
 
 Add class to element.
 
