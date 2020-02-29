@@ -10,7 +10,7 @@
  * @return {number} Random number.
  */
 export const floatRandomBetween = (min, max) => {
-  return Math.random() * (max - min + 1) + min;
+  return Math.random() * (max - min) + min;
 };
 
 /**
@@ -25,7 +25,7 @@ export const floatRandomBetween = (min, max) => {
  * @return {number} Random number.
  */
 export const randomBetween = (min, max) => {
-  return Math.floor(utilities.floatRandomBetween(min, max));
+  return Math.round(floatRandomBetween(min, max));
 };
 
 /**
@@ -52,7 +52,7 @@ export const lerp = (x, y, amount) => {
  * @return {array} Shuffled array.
  */
 export const shuffleArray = (array, modifyOriginal = true) => {
-  var currentIndex = array.length,
+  let currentIndex = array.length,
     temporaryValue,
     randomIndex;
 
@@ -163,7 +163,7 @@ export const isChildOf = (element, parentElement, toWorld = true) => {
     isChildOf = true;
   }
   if (toWorld === true && isChildOf === false && element.parentNode) {
-    isChildOf = utilities.isChildOf(element.parentNode, parentElement);
+    isChildOf = isChildOf(element.parentNode, parentElement);
   }
   return isChildOf;
 };
