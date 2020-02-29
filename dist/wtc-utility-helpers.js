@@ -3,9 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.serializeArray = exports.fixWidows = exports.getSelectorForElement = exports.matches = exports.getAncestors = exports.getSiblings = exports.isChildOf = exports.getElementPosition = exports.fireCustomEvent = exports.shuffleArray = exports.lerp = exports.randomBetween = exports.floatRandomBetween = void 0;
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); }
 
@@ -15,48 +21,45 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var utilities = {};
 /**
  * Generate a random float number max and min.
- * 
+ *
  * ```javascript
  * utilities.floatRandomBetween(-10, 20); // 12.513
  * ```
- * 
- * @public
+ *
  * @param {number} min Minimum value.
  * @param {number} max Maximum value.
  * @return {number} Random number.
  */
-
-utilities.floatRandomBetween = function (min, max) {
+var floatRandomBetween = function floatRandomBetween(min, max) {
   return Math.random() * (max - min + 1) + min;
 };
 /**
  * Generate a random integer number max and min.
- * 
+ *
  * ```javascript
  * utilities.randomBetween(-10, 20); // 12
  * ```
- * 
- * @public
+ *
  * @param {number} min Minimum value.
  * @param {number} max Maximum value.
  * @return {number} Random number.
  */
 
 
-utilities.randomBetween = function (min, max) {
+exports.floatRandomBetween = floatRandomBetween;
+
+var randomBetween = function randomBetween(min, max) {
   return Math.floor(utilities.floatRandomBetween(min, max));
 };
 /**
  * Linearly interpolate between two values by a unit interval
- * 
+ *
  * ```javascript
  * utilities.lerp(100, 200, .5); // 150
  * ```
- * 
- * @public
+ *
  * @param {number} x The lower value
  * @param {number} y The upper value
  * @param {number} amount the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this *will* work with higher and lower values as well.
@@ -64,40 +67,23 @@ utilities.randomBetween = function (min, max) {
  */
 
 
-utilities.lerp = function (x, y, amount) {
+exports.randomBetween = randomBetween;
+
+var lerp = function lerp(x, y, amount) {
   return (1 - amount) * x + amount * y;
 };
 /**
- * Fires an event only once and executes the callback.
- * 
- * ```javascript
- * utilities.once(node, type, callback);
- * ```
- * 
- * @public
- * @param {DOMElement} node Dom element to attach event.
- * @param {String} type Type of event.
- * @param {function} callback Callback.
- */
-
-
-utilities.once = function (node, type, callback) {
-  node.addEventListener(type, function (e) {
-    e.target.removeEventListener(e.type, arguments.callee);
-    return callback(e);
-  });
-};
-/**
  * Shuffle an array.
- * 
- * @public
+ *
  * @param {Array} array Arrray to be shuffled.
  * @param {Boolean=} modifyOriginal A boolean indicating whether the original array should be modified or whether a copy should be created. (default True)
  * @return {array} Shuffled array.
  */
 
 
-utilities.shuffleArray = function (array) {
+exports.lerp = lerp;
+
+var shuffleArray = function shuffleArray(array) {
   var modifyOriginal = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
   var currentIndex = array.length,
       temporaryValue,
@@ -129,12 +115,11 @@ utilities.shuffleArray = function (array) {
 };
 /**
  * Fire a custom event.
- * 
+ *
  * ```javascript
  * utilities.fireCustomEvent(name, data);
  * ```
- * 
- * @public
+ *
  * @param {string} name Name of the event.
  * @param {object} data Object to be passed to the event.
  * @param {Boolean=} bubbles Indicates whether the event bubbles (default True)
@@ -142,68 +127,34 @@ utilities.shuffleArray = function (array) {
  */
 
 
-utilities.fireCustomEvent = function (name, data, bubbles, cancelable) {
+exports.shuffleArray = shuffleArray;
+
+var fireCustomEvent = function fireCustomEvent(name, data, bubbles, cancelable) {
   var ev;
   var params = {
     bubbles: bubbles || true,
     cancelable: cancelable || true,
     detail: data || null
-  }; // In IE11 window.CustomEvent exists but cannot be called as a constructor.
-  // Therefor, for IE11, you need to fall back to document.createEvent('CustomEvent')
-  // When we stop supporting IE11, this can all be simplified to:
-  // | ev = new CustomEvent(name, params);
-
-  if (typeof window.CustomEvent === "function") {
-    ev = new CustomEvent(name, params);
-  } else {
-    ev = document.createEvent('CustomEvent');
-    ev.initCustomEvent(name, params.bubbles, params.cancelable, params.detail);
-  }
-
+  };
+  ev = new CustomEvent(name, params);
   window.dispatchEvent(ev);
 };
 /**
- * Loop through and array of DOM elements.
- * 
- * ```javascript
- * utilities.forEachNode(array, callback, scope);
- * ```
- * 
- * @public
- * @deprecated since version 2.0 - this really only exists anymore because of IE11
- * @param {DOMNodeList} array List of elements.
- * @param {function} callback Callback.
- * @param {function=} scope Scope to pass to callback.
- */
-
-
-var deprecationWarning_forEachNode = false;
-
-utilities.forEachNode = function (array, callback, scope) {
-  if (deprecationWarning_forEachNode === false) {
-    deprecationWarning_forEachNode = true;
-    console.warn('The forEachNode is deprecated and will be removed. Please stop using it.');
-  }
-
-  for (var i = 0; i < array.length; i++) {
-    callback.call(scope, i, array[i]); // passes back stuff we need
-  }
-};
-/**
  * Get the position of the element relative to document or optionally to the nearest offset parent.
- * 
+ *
  * ```javascript
  * utilities.getElementPosition(element); // returns something like { top: 100, left: 500 }
  * ```
- * 
- * @public
+ *
  * @param {DOMNode} element Element.
  * @param {Boolean=} toWorld indicates whether the calculation of the element offset should be to the page or to the offset parent. (default True)
  * @returns {Object} the element coordinates.
  */
 
 
-utilities.getElementPosition = function (element) {
+exports.fireCustomEvent = fireCustomEvent;
+
+var getElementPosition = function getElementPosition(element) {
   var toWorld = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
   var offset = {
     top: 0,
@@ -229,13 +180,12 @@ utilities.getElementPosition = function (element) {
  * Determines whether the element is a child 0 ancestor of the other.
  * If the toWorld flag is true (default), this will test recursively
  * up the node hierarchy.
- * 
+ *
  * This method can be used to determine whether a node is detached
  * by something like:
  * ```
  * attached = utilities.isChildOf(element, document.body);
  * ```
- * @public
  * @param {DomNode} element The element to test with
  * @param {DomNode} parentElement The parent element to test against
  * @param {Boolean=} toWorld Whether to test this up the DOM hierarchy
@@ -243,7 +193,9 @@ utilities.getElementPosition = function (element) {
  */
 
 
-utilities.isChildOf = function (element, parentElement) {
+exports.getElementPosition = getElementPosition;
+
+var isChildOf = function isChildOf(element, parentElement) {
   var toWorld = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
   var isChildOf = false;
 
@@ -258,144 +210,39 @@ utilities.isChildOf = function (element, parentElement) {
   return isChildOf;
 };
 /**
- * Checks for class on element.
- * 
- * @public
- * @deprecated since version 2.0
- * @param {string} cl Names. You can split the names with a space
- * @param {DOMElement} e Element
- * @return {Boolean} true is the element class string contains the provided class names
- */
-
-
-var deprecationWarning_hasClass = false;
-
-utilities.hasClass = function (cl, e) {
-  if (deprecationWarning_hasClass === false) {
-    deprecationWarning_hasClass = true;
-    console.warn('The HasClass method is deprecated and will be removed. Please stop using it.');
-  }
-
-  var c, classes, i, j, len, len1;
-  classes = cl.split(' ');
-
-  if (e.classList) {
-    for (i = 0, len = classes.length; i < len; i++) {
-      c = classes[i];
-
-      if (e.classList.contains(c) === true) {
-        return true;
-      }
-    }
-  } else {
-    for (j = 0, len1 = classes.length; j < len1; j++) {
-      c = classes[j];
-
-      if (new RegExp('(^| )' + c + '( |$)', 'gi').test(e.c)) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-};
-/**
- * Remove class from element.
- * 
- * @public
- * @deprecated since version 2.0
- * @param {string} c name of the class
- * @param {DOMElement} e Element
- */
-
-
-var deprecationWarning_removeClass = false;
-
-utilities.removeClass = function (c, e) {
-  if (deprecationWarning_removeClass === false) {
-    deprecationWarning_removeClass = true;
-    console.warn('The removeClass method is deprecated and will be removed. Please stop using it.');
-  }
-
-  var classes, i, j, len, len1;
-  classes = c.split(' ');
-
-  if (e.classList) {
-    for (i = 0, len = classes.length; i < len; i++) {
-      c = classes[i];
-      e.classList.remove(c);
-    }
-  } else {
-    for (j = 0, len1 = classes.length; j < len1; j++) {
-      c = classes[j];
-      e.className = e.className.replace(new RegExp('(^|\\b)' + c.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
-  }
-};
-/**
- * Add class to element.
- * 
- * @public
- * @deprecated since version 2.0
- * @param {string} c Name of the class
- * @param {DOMElement} e Element
- */
-
-
-var deprecationWarning_addClass = false;
-
-utilities.addClass = function (c, e) {
-  if (deprecationWarning_addClass === false) {
-    deprecationWarning_addClass = true;
-    console.warn('The addClass method is deprecated and will be removed. Please stop using it.');
-  }
-
-  var classes, i, j, len, len1;
-  classes = c.split(' ');
-
-  if (e.classList) {
-    for (i = 0, len = classes.length; i < len; i++) {
-      c = classes[i];
-      e.classList.add(c);
-    }
-  } else {
-    for (j = 0, len1 = classes.length; j < len1; j++) {
-      c = classes[j];
-      e.className += ' ' + c;
-    }
-  }
-};
-/**
  * Get siblings from element
- * 
+ *
  * ```javascript
  * utilities.getSiblings(e);
  * ```
- * 
+ *
  * @param {DOMElement} e Element
  * @return Returns a list with the element's siblings.
  */
 
 
-utilities.getSiblings = function (e) {
-  return Array.prototype.filter.call(e.parentNode.children, function (child) {
-    return child !== e;
+exports.isChildOf = isChildOf;
+
+var getSiblings = function getSiblings(element) {
+  return _toConsumableArray(element.parentNode.children).filter(function (child) {
+    return child !== element;
   });
 };
 /**
- * Retrieves all of the ancestors of an element, optionally to 
- * the document body (true by default). The list that is 
+ * Retrieves all of the ancestors of an element, optionally to
+ * the document body (true by default). The list that is
  * returned is the list of ancestors in order from the oldest
  * to youngest.
- * 
- * @public
+ *
  * @param {DOMElement} e The element to retrieve the ancestors for
  * @param {boolean=} toBody whether to only test to the body (default True)
  * @param {array=} ancestors the list of already existing elements to pass. This is nromally only used internally
  */
 
 
-utilities.getAncestors = function (e) {
+exports.getSiblings = getSiblings;
+
+var getAncestors = function getAncestors(e) {
   var toBody = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
   var ancestors = arguments.length > 2 ? arguments[2] : undefined;
   if (!ancestors) ancestors = [];
@@ -416,7 +263,9 @@ utilities.getAncestors = function (e) {
  */
 
 
-utilities.matches = function () {
+exports.getAncestors = getAncestors;
+
+var matches = function matches() {
   var doc, matches;
   doc = document.documentElement;
   matches = doc.matchesSelector || doc.webkitMatchesSelector || doc.mozMatchesSelector || doc.oMatchesSelector || doc.msMatchesSelector;
@@ -425,28 +274,29 @@ utilities.matches = function () {
 /**
  * Returns the CSS selector for a provided element
  *
- * @public
  * @param  {DOMElement}   el         The DOM node to find a selector for
  * @return {String}                  The CSS selector the describes exactly where to find the element
  */
 
 
-utilities.getSelectorForElement = function (el) {
+exports.matches = matches;
+
+var getSelectorForElement = function getSelectorForElement(element) {
   var particles = [];
 
-  while (el.parentNode) {
-    if (el.id) {
-      particles.unshift('#' + el.id);
+  while (element.parentNode) {
+    if (element.id) {
+      particles.unshift("#" + element.id);
       break;
     } else {
-      if (el == el.ownerDocument.documentElement) particles.unshift(el.tagName);else {
-        for (var c = 1, e = el; e.previousElementSibling; e = e.previousElementSibling, c++) {
+      if (element == element.ownerDocument.documentElement) particles.unshift(element.tagName);else {
+        for (var c = 1, e = element; e.previousElementSibling; e = e.previousElementSibling, c++) {
           ;
         }
 
-        particles.unshift(el.tagName + ":nth-child(" + c + ")");
+        particles.unshift(element.tagName + ":nth-child(" + c + ")");
       }
-      el = el.parentNode;
+      element = element.parentNode;
     }
   }
 
@@ -455,7 +305,9 @@ utilities.getSelectorForElement = function (el) {
 // This function is a little dangerous at the moment so we should revisit it at some point in the future
 
 
-utilities.fixWidows = function (els) {
+exports.getSelectorForElement = getSelectorForElement;
+
+var fixWidows = function fixWidows(els) {
   _els = els;
 
   if (els instanceof Node) {
@@ -480,22 +332,24 @@ utilities.fixWidows = function (els) {
  */
 
 
-utilities.serializeArray = function (form) {
+exports.fixWidows = fixWidows;
+
+var serializeArray = function serializeArray(form) {
   var s = [];
 
-  if (_typeof(form) == 'object' && form.nodeName == "FORM") {
+  if (_typeof(form) == "object" && form.nodeName == "FORM") {
     for (var i = 0; i < form.elements.length; i++) {
       var field = form.elements[i];
 
-      if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
-        if (field.type == 'select-multiple') {
+      if (field.name && !field.disabled && field.type != "file" && field.type != "reset" && field.type != "submit" && field.type != "button") {
+        if (field.type == "select-multiple") {
           for (var j = 0; j < form.elements[i].options.length; j++) {
             if (field.options[j].selected) s[s.length] = {
               name: field.name,
               value: field.options[j].value
             };
           }
-        } else if (field.type != 'checkbox' && field.type != 'radio' || field.checked) {
+        } else if (field.type != "checkbox" && field.type != "radio" || field.checked) {
           s[s.length] = {
             name: field.name,
             value: field.value
@@ -508,5 +362,4 @@ utilities.serializeArray = function (form) {
   return s;
 };
 
-var _default = utilities;
-exports["default"] = _default;
+exports.serializeArray = serializeArray;
