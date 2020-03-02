@@ -1,6 +1,6 @@
 {
   "name": "wtc-utility-helpers",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Javascript helpers, perfect for non-jquery projects.",
   "main": "dist/wtc-utility-helpers.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "babel src/ --presets @babel/preset-env --out-dir dist",
     "build-ES5": "npx webpack --config webpack.config.js",
     "prepare": "npm run build && npm run build-ES5",
-    "document": "doxdox src/wtc-utility-helpers.js  --layout markdown --output README.md"
+    "document": "npx jsdoc2md src/wtc-utility-helpers.js -c jsdoc.json > README.md"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,6 @@
     "@babel/preset-env": "^7.2.3",
     "babel-loader": "^8.0.5",
     "core-js": "^3.2.1",
-    "doxdox": "^3.0.0",
     "jsdoc-to-markdown": "^5.0.1",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1"

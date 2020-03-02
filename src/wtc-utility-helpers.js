@@ -2,7 +2,7 @@
  * Generate a random float number max and min.
  *
  * ```javascript
- * utilities.floatRandomBetween(-10, 20); // 12.513
+ * floatRandomBetween(-10, 20); // 12.513
  * ```
  *
  * @param {number} min Minimum value.
@@ -17,7 +17,7 @@ export const floatRandomBetween = (min, max) => {
  * Generate a random integer number max and min.
  *
  * ```javascript
- * utilities.randomBetween(-10, 20); // 12
+ * randomBetween(-10, 20); // 12
  * ```
  *
  * @param {number} min Minimum value.
@@ -32,7 +32,7 @@ export const randomBetween = (min, max) => {
  * Linearly interpolate between two values by a unit interval
  *
  * ```javascript
- * utilities.lerp(100, 200, .5); // 150
+ * lerp(100, 200, .5); // 150
  * ```
  *
  * @param {number} x The lower value
@@ -83,7 +83,7 @@ export const shuffleArray = (array, modifyOriginal = true) => {
  * Fire a custom event.
  *
  * ```javascript
- * utilities.fireCustomEvent(name, data);
+ * fireCustomEvent(name, data);
  * ```
  *
  * @param {string} name Name of the event.
@@ -108,7 +108,7 @@ export const fireCustomEvent = (name, data, bubbles, cancelable) => {
  * Get the position of the element relative to document or optionally to the nearest offset parent.
  *
  * ```javascript
- * utilities.getElementPosition(element); // returns something like { top: 100, left: 500 }
+ * getElementPosition(element); // returns something like { top: 100, left: 500 }
  * ```
  *
  * @param {DOMNode} element Element.
@@ -150,7 +150,7 @@ export const getElementPosition = (element, toWorld = true) => {
  * This method can be used to determine whether a node is detached
  * by something like:
  * ```
- * attached = utilities.isChildOf(element, document.body);
+ * attached = isChildOf(element, document.body);
  * ```
  * @param {DomNode} element The element to test with
  * @param {DomNode} parentElement The parent element to test against
@@ -172,7 +172,7 @@ export const isChildOf = (element, parentElement, toWorld = true) => {
  * Get siblings from element
  *
  * ```javascript
- * utilities.getSiblings(e);
+ * getSiblings(e);
  * ```
  *
  * @param {DOMElement} e Element
@@ -203,7 +203,7 @@ export const getAncestors = (e, toBody = true, ancestors) => {
 
   if (e.parentNode) {
     ancestors.splice(0, 0, [e.parentNode]);
-    utilities.getAncestors(e.parentNode, toBody, ancestors);
+    getAncestors(e.parentNode, toBody, ancestors);
   }
 
   return ancestors;
@@ -254,8 +254,10 @@ export const getSelectorForElement = element => {
   return particles.join(" > ");
 };
 
-// Fix widows replaces the last space in a sentence with a non-breaking space
-// This function is a little dangerous at the moment so we should revisit it at some point in the future
+/**
+ * Fix widows replaces the last space in a sentence with a non-breaking space
+ * This function is a little dangerous at the moment so we should revisit it at some point in the future
+ */
 export const fixWidows = els => {
   _els = els;
   if (els instanceof Node) {
