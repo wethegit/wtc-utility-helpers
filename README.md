@@ -1,4 +1,4 @@
-# [wtc-utility-helpers](https://github.com/wethegit/wtc-utility-helpers) *2.1.0*
+# [wtc-utility-helpers](https://github.com/wethegit/wtc-utility-helpers) *3.0.0*
 
 > Javascript helpers, perfect for non-jquery projects.
 
