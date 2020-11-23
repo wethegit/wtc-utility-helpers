@@ -311,3 +311,35 @@ export const serializeArray = form => {
 
   return s;
 };
+
+/**
+ * Asynchronous image loader. Returns a promise for an image
+ * allowing it to be used directly via `.then()` or as a part
+ * of an async workload via `await`.
+ * 
+ * The then returns the provided image for use in the promise
+ * fulfullment.
+ * 
+ * Usage:
+ * ```
+ * const img = new Image();
+ * img.crossOrigin = "anonymous"; // If you need to load images cross-origin
+ * const p = asyncImageLoad(img, '/assets/images/cool_image.png')
+ * p.then((img) => {
+ *   console.log('image loaded!')
+ * }, (reason) => {
+ *   console.log('image didn\'t load')
+ * });
+ * ```
+ *
+ * @param  {Image}   img       The image object to perform the operation on
+ * @param  {String}  src       The image SRC
+ * @return {Promise}           A primise
+ */
+export const asyncImageLoad = function(img, src) {
+  return new Promise((resolve, reject) => {
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  })
+}

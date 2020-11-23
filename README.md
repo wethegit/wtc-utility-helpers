@@ -3,247 +3,539 @@
 <dl>
 <dt><a href="#floatRandomBetween">floatRandomBetween</a> ⇒ <code>number</code></dt>
 <dd><p>Generate a random float number max and min.</p>
-<pre><code class="language-javascript">floatRandomBetween(-10, 20); // 12.513</code></pre>
-</dd>
+<pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
+</code></pre></dd>
 <dt><a href="#randomBetween">randomBetween</a> ⇒ <code>number</code></dt>
 <dd><p>Generate a random integer number max and min.</p>
-<pre><code class="language-javascript">randomBetween(-10, 20); // 12</code></pre>
-</dd>
+<pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
+</code></pre></dd>
 <dt><a href="#lerp">lerp</a> ⇒ <code>number</code></dt>
 <dd><p>Linearly interpolate between two values by a unit interval</p>
-<pre><code class="language-javascript">lerp(100, 200, .5); // 150</code></pre>
-</dd>
+<pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
+</code></pre></dd>
 <dt><a href="#shuffleArray">shuffleArray</a> ⇒ <code>array</code></dt>
-<dd><p>Shuffle an array.</p>
-</dd>
+<dd><p>Shuffle an array.</p></dd>
 <dt><a href="#fireCustomEvent">fireCustomEvent</a></dt>
 <dd><p>Fire a custom event.</p>
-<pre><code class="language-javascript">fireCustomEvent(name, data);</code></pre>
-</dd>
+<pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
+</code></pre></dd>
 <dt><a href="#getElementPosition">getElementPosition</a> ⇒ <code>Object</code></dt>
 <dd><p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
-<pre><code class="language-javascript">getElementPosition(element); // returns something like { top: 100, left: 500 }</code></pre>
-</dd>
+<pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
+</code></pre></dd>
 <dt><a href="#isChildOf">isChildOf</a> ⇒ <code>Boolean</code></dt>
 <dd><p>Determines whether the element is a child 0 ancestor of the other.
 If the toWorld flag is true (default), this will test recursively
 up the node hierarchy.</p>
 <p>This method can be used to determine whether a node is detached
 by something like:</p>
-<pre><code>attached = isChildOf(element, document.body);</code></pre></dd>
+<pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
+</code></pre></dd>
 <dt><a href="#getSiblings">getSiblings</a> ⇒</dt>
 <dd><p>Get siblings from element</p>
-<pre><code class="language-javascript">getSiblings(e);</code></pre>
-</dd>
+<pre class="prettyprint source lang-javascript"><code>getSiblings(e);
+</code></pre></dd>
 <dt><a href="#getAncestors">getAncestors</a></dt>
 <dd><p>Retrieves all of the ancestors of an element, optionally to
 the document body (true by default). The list that is
 returned is the list of ancestors in order from the oldest
-to youngest.</p>
-</dd>
+to youngest.</p></dd>
 <dt><a href="#matches">matches</a></dt>
-<dd><p>Function to normalize the selctor &#39;matchesSelector&#39; across browsers</p>
-</dd>
+<dd><p>Function to normalize the selctor 'matchesSelector' across browsers</p></dd>
 <dt><a href="#getSelectorForElement">getSelectorForElement</a> ⇒ <code>String</code></dt>
-<dd><p>Returns the CSS selector for a provided element</p>
-</dd>
+<dd><p>Returns the CSS selector for a provided element</p></dd>
 <dt><a href="#fixWidows">fixWidows</a></dt>
 <dd><p>Fix widows replaces the last space in a sentence with a non-breaking space
-This function is a little dangerous at the moment so we should revisit it at some point in the future</p>
-</dd>
+This function is a little dangerous at the moment so we should revisit it at some point in the future</p></dd>
 <dt><a href="#serializeArray">serializeArray</a> ⇒ <code>Array</code></dt>
-<dd><p>Returns the form data as an array of name/value pairs.</p>
-</dd>
+<dd><p>Returns the form data as an array of name/value pairs.</p></dd>
+<dt><a href="#asyncImageLoad">asyncImageLoad</a> ⇒ <code>Promise</code></dt>
+<dd><p>Asynchronous image loader. Returns a promise for an image
+allowing it to be used directly via <code>.then()</code> or as a part
+of an async workload via <code>await</code>.</p>
+<p>The then returns the provided image for use in the promise
+fulfullment.</p>
+<p>Usage:</p>
+<pre class="prettyprint source"><code>const img = new Image();
+img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
+const p = asyncImageLoad(img, '/assets/images/cool_image.png')
+p.then((img) => {
+  console.log('image loaded!')
+}, (reason) => {
+  console.log('image didn\'t load')
+});
+</code></pre></dd>
+<dt><a href="#floatRandomBetween">floatRandomBetween</a> ⇒ <code>number</code></dt>
+<dd><p>Generate a random float number max and min.</p>
+<pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
+</code></pre></dd>
+<dt><a href="#randomBetween">randomBetween</a> ⇒ <code>number</code></dt>
+<dd><p>Generate a random integer number max and min.</p>
+<pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
+</code></pre></dd>
+<dt><a href="#lerp">lerp</a> ⇒ <code>number</code></dt>
+<dd><p>Linearly interpolate between two values by a unit interval</p>
+<pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
+</code></pre></dd>
+<dt><a href="#shuffleArray">shuffleArray</a> ⇒ <code>array</code></dt>
+<dd><p>Shuffle an array.</p></dd>
+<dt><a href="#fireCustomEvent">fireCustomEvent</a></dt>
+<dd><p>Fire a custom event.</p>
+<pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
+</code></pre></dd>
+<dt><a href="#getElementPosition">getElementPosition</a> ⇒ <code>Object</code></dt>
+<dd><p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
+<pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
+</code></pre></dd>
+<dt><a href="#isChildOf">isChildOf</a> ⇒ <code>Boolean</code></dt>
+<dd><p>Determines whether the element is a child 0 ancestor of the other.
+If the toWorld flag is true (default), this will test recursively
+up the node hierarchy.</p>
+<p>This method can be used to determine whether a node is detached
+by something like:</p>
+<pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
+</code></pre></dd>
+<dt><a href="#getSiblings">getSiblings</a> ⇒</dt>
+<dd><p>Get siblings from element</p>
+<pre class="prettyprint source lang-javascript"><code>getSiblings(e);
+</code></pre></dd>
+<dt><a href="#getAncestors">getAncestors</a></dt>
+<dd><p>Retrieves all of the ancestors of an element, optionally to
+the document body (true by default). The list that is
+returned is the list of ancestors in order from the oldest
+to youngest.</p></dd>
+<dt><a href="#matches">matches</a></dt>
+<dd><p>Function to normalize the selctor 'matchesSelector' across browsers</p></dd>
+<dt><a href="#getSelectorForElement">getSelectorForElement</a> ⇒ <code>String</code></dt>
+<dd><p>Returns the CSS selector for a provided element</p></dd>
+<dt><a href="#fixWidows">fixWidows</a></dt>
+<dd><p>Fix widows replaces the last space in a sentence with a non-breaking space
+This function is a little dangerous at the moment so we should revisit it at some point in the future</p></dd>
+<dt><a href="#serializeArray">serializeArray</a> ⇒ <code>Array</code></dt>
+<dd><p>Returns the form data as an array of name/value pairs.</p></dd>
+<dt><a href="#asyncImageLoad">asyncImageLoad</a> ⇒ <code>Promise</code></dt>
+<dd><p>Asynchronous image loader. Returns a promise for an image
+allowing it to be used directly via <code>.then()</code> or as a part
+of an async workload via <code>await</code>.</p>
+<p>The then returns the provided image for use in the promise
+fulfullment.</p>
+<p>Usage:</p>
+<pre class="prettyprint source"><code>const img = new Image();
+img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
+const p = asyncImageLoad(img, '/assets/images/cool_image.png')
+p.then((img) => {
+  console.log('image loaded!')
+}, (reason) => {
+  console.log('image didn\'t load')
+});
+</code></pre></dd>
 </dl>
 
 <a name="floatRandomBetween"></a>
 
 ## floatRandomBetween ⇒ <code>number</code>
-Generate a random float number max and min.
-
-```javascript
-floatRandomBetween(-10, 20); // 12.513
-```
+<p>Generate a random float number max and min.</p>
+<pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
+</code></pre>
 
 **Kind**: global constant  
-**Returns**: <code>number</code> - Random number.  
+**Returns**: <code>number</code> - <p>Random number.</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| min | <code>number</code> | Minimum value. |
-| max | <code>number</code> | Maximum value. |
+| min | <code>number</code> | <p>Minimum value.</p> |
+| max | <code>number</code> | <p>Maximum value.</p> |
 
 <a name="randomBetween"></a>
 
 ## randomBetween ⇒ <code>number</code>
-Generate a random integer number max and min.
-
-```javascript
-randomBetween(-10, 20); // 12
-```
+<p>Generate a random integer number max and min.</p>
+<pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
+</code></pre>
 
 **Kind**: global constant  
-**Returns**: <code>number</code> - Random number.  
+**Returns**: <code>number</code> - <p>Random number.</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| min | <code>number</code> | Minimum value. |
-| max | <code>number</code> | Maximum value. |
+| min | <code>number</code> | <p>Minimum value.</p> |
+| max | <code>number</code> | <p>Maximum value.</p> |
 
 <a name="lerp"></a>
 
 ## lerp ⇒ <code>number</code>
-Linearly interpolate between two values by a unit interval
-
-```javascript
-lerp(100, 200, .5); // 150
-```
+<p>Linearly interpolate between two values by a unit interval</p>
+<pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
+</code></pre>
 
 **Kind**: global constant  
-**Returns**: <code>number</code> - The interpolated value  
+**Returns**: <code>number</code> - <p>The interpolated value</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| x | <code>number</code> | The lower value |
-| y | <code>number</code> | The upper value |
-| amount | <code>number</code> | the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this *will* work with higher and lower values as well. |
+| x | <code>number</code> | <p>The lower value</p> |
+| y | <code>number</code> | <p>The upper value</p> |
+| amount | <code>number</code> | <p>the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this <em>will</em> work with higher and lower values as well.</p> |
 
 <a name="shuffleArray"></a>
 
 ## shuffleArray ⇒ <code>array</code>
-Shuffle an array.
+<p>Shuffle an array.</p>
 
 **Kind**: global constant  
-**Returns**: <code>array</code> - Shuffled array.  
+**Returns**: <code>array</code> - <p>Shuffled array.</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| array | <code>Array</code> | Arrray to be shuffled. |
-| [modifyOriginal] | <code>Boolean</code> | A boolean indicating whether the original array should be modified or whether a copy should be created. (default True) |
+| array | <code>Array</code> | <p>Arrray to be shuffled.</p> |
+| [modifyOriginal] | <code>Boolean</code> | <p>A boolean indicating whether the original array should be modified or whether a copy should be created. (default True)</p> |
 
 <a name="fireCustomEvent"></a>
 
 ## fireCustomEvent
-Fire a custom event.
-
-```javascript
-fireCustomEvent(name, data);
-```
+<p>Fire a custom event.</p>
+<pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
+</code></pre>
 
 **Kind**: global constant  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| name | <code>string</code> | Name of the event. |
-| data | <code>object</code> | Object to be passed to the event. |
-| [bubbles] | <code>Boolean</code> | Indicates whether the event bubbles (default True) |
-| [cancelable] | <code>Boolean</code> | Indicates whether the event is cancellable  default True) |
+| name | <code>string</code> | <p>Name of the event.</p> |
+| data | <code>object</code> | <p>Object to be passed to the event.</p> |
+| [bubbles] | <code>Boolean</code> | <p>Indicates whether the event bubbles (default True)</p> |
+| [cancelable] | <code>Boolean</code> | <p>Indicates whether the event is cancellable  default True)</p> |
 
 <a name="getElementPosition"></a>
 
 ## getElementPosition ⇒ <code>Object</code>
-Get the position of the element relative to document or optionally to the nearest offset parent.
-
-```javascript
-getElementPosition(element); // returns something like { top: 100, left: 500 }
-```
+<p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
+<pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
+</code></pre>
 
 **Kind**: global constant  
-**Returns**: <code>Object</code> - the element coordinates.  
+**Returns**: <code>Object</code> - <p>the element coordinates.</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| element | <code>DOMNode</code> | Element. |
-| [toWorld] | <code>Boolean</code> | indicates whether the calculation of the element offset should be to the page or to the offset parent. (default True) |
+| element | <code>DOMNode</code> | <p>Element.</p> |
+| [toWorld] | <code>Boolean</code> | <p>indicates whether the calculation of the element offset should be to the page or to the offset parent. (default True)</p> |
 
 <a name="isChildOf"></a>
 
 ## isChildOf ⇒ <code>Boolean</code>
-Determines whether the element is a child 0 ancestor of the other.
+<p>Determines whether the element is a child 0 ancestor of the other.
 If the toWorld flag is true (default), this will test recursively
-up the node hierarchy.
-
-This method can be used to determine whether a node is detached
-by something like:
-```
-attached = isChildOf(element, document.body);
-```
+up the node hierarchy.</p>
+<p>This method can be used to determine whether a node is detached
+by something like:</p>
+<pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
+</code></pre>
 
 **Kind**: global constant  
-**Returns**: <code>Boolean</code> - true is the parentElement is parent (or ancestor) to Element  
+**Returns**: <code>Boolean</code> - <p>true is the parentElement is parent (or ancestor) to Element</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| element | <code>DomNode</code> | The element to test with |
-| parentElement | <code>DomNode</code> | The parent element to test against |
-| [toWorld] | <code>Boolean</code> | Whether to test this up the DOM hierarchy |
+| element | <code>DomNode</code> | <p>The element to test with</p> |
+| parentElement | <code>DomNode</code> | <p>The parent element to test against</p> |
+| [toWorld] | <code>Boolean</code> | <p>Whether to test this up the DOM hierarchy</p> |
 
 <a name="getSiblings"></a>
 
 ## getSiblings ⇒
-Get siblings from element
-
-```javascript
-getSiblings(e);
-```
+<p>Get siblings from element</p>
+<pre class="prettyprint source lang-javascript"><code>getSiblings(e);
+</code></pre>
 
 **Kind**: global constant  
-**Returns**: Returns a list with the element's siblings.  
+**Returns**: <p>Returns a list with the element's siblings.</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| e | <code>DOMElement</code> | Element |
+| e | <code>DOMElement</code> | <p>Element</p> |
 
 <a name="getAncestors"></a>
 
 ## getAncestors
-Retrieves all of the ancestors of an element, optionally to
+<p>Retrieves all of the ancestors of an element, optionally to
 the document body (true by default). The list that is
 returned is the list of ancestors in order from the oldest
-to youngest.
+to youngest.</p>
 
 **Kind**: global constant  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| e | <code>DOMElement</code> | The element to retrieve the ancestors for |
-| [toBody] | <code>boolean</code> | whether to only test to the body (default True) |
-| [ancestors] | <code>array</code> | the list of already existing elements to pass. This is nromally only used internally |
+| e | <code>DOMElement</code> | <p>The element to retrieve the ancestors for</p> |
+| [toBody] | <code>boolean</code> | <p>whether to only test to the body (default True)</p> |
+| [ancestors] | <code>array</code> | <p>the list of already existing elements to pass. This is nromally only used internally</p> |
 
 <a name="matches"></a>
 
 ## matches
-Function to normalize the selctor 'matchesSelector' across browsers
+<p>Function to normalize the selctor 'matchesSelector' across browsers</p>
 
 **Kind**: global constant  
 <a name="getSelectorForElement"></a>
 
 ## getSelectorForElement ⇒ <code>String</code>
-Returns the CSS selector for a provided element
+<p>Returns the CSS selector for a provided element</p>
 
 **Kind**: global constant  
-**Returns**: <code>String</code> - The CSS selector the describes exactly where to find the element  
+**Returns**: <code>String</code> - <p>The CSS selector the describes exactly where to find the element</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| el | <code>DOMElement</code> | The DOM node to find a selector for |
+| el | <code>DOMElement</code> | <p>The DOM node to find a selector for</p> |
 
 <a name="fixWidows"></a>
 
 ## fixWidows
-Fix widows replaces the last space in a sentence with a non-breaking space
-This function is a little dangerous at the moment so we should revisit it at some point in the future
+<p>Fix widows replaces the last space in a sentence with a non-breaking space
+This function is a little dangerous at the moment so we should revisit it at some point in the future</p>
 
 **Kind**: global constant  
 <a name="serializeArray"></a>
 
 ## serializeArray ⇒ <code>Array</code>
-Returns the form data as an array of name/value pairs.
+<p>Returns the form data as an array of name/value pairs.</p>
 
 **Kind**: global constant  
-**Returns**: <code>Array</code> - Serialized data  
+**Returns**: <code>Array</code> - <p>Serialized data</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| form | <code>DOMElement</code> | The <form> DOM node |
+| form | <code>DOMElement</code> | <p>The <form> DOM node</p> |
+
+<a name="asyncImageLoad"></a>
+
+## asyncImageLoad ⇒ <code>Promise</code>
+<p>Asynchronous image loader. Returns a promise for an image
+allowing it to be used directly via <code>.then()</code> or as a part
+of an async workload via <code>await</code>.</p>
+<p>The then returns the provided image for use in the promise
+fulfullment.</p>
+<p>Usage:</p>
+<pre class="prettyprint source"><code>const img = new Image();
+img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
+const p = asyncImageLoad(img, '/assets/images/cool_image.png')
+p.then((img) => {
+  console.log('image loaded!')
+}, (reason) => {
+  console.log('image didn\'t load')
+});
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>Promise</code> - <p>A primise</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| img | <code>Image</code> | <p>The image object to perform the operation on</p> |
+| src | <code>String</code> | <p>The image SRC</p> |
+
+<a name="floatRandomBetween"></a>
+
+## floatRandomBetween ⇒ <code>number</code>
+<p>Generate a random float number max and min.</p>
+<pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>number</code> - <p>Random number.</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| min | <code>number</code> | <p>Minimum value.</p> |
+| max | <code>number</code> | <p>Maximum value.</p> |
+
+<a name="randomBetween"></a>
+
+## randomBetween ⇒ <code>number</code>
+<p>Generate a random integer number max and min.</p>
+<pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>number</code> - <p>Random number.</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| min | <code>number</code> | <p>Minimum value.</p> |
+| max | <code>number</code> | <p>Maximum value.</p> |
+
+<a name="lerp"></a>
+
+## lerp ⇒ <code>number</code>
+<p>Linearly interpolate between two values by a unit interval</p>
+<pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>number</code> - <p>The interpolated value</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| x | <code>number</code> | <p>The lower value</p> |
+| y | <code>number</code> | <p>The upper value</p> |
+| amount | <code>number</code> | <p>the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this <em>will</em> work with higher and lower values as well.</p> |
+
+<a name="shuffleArray"></a>
+
+## shuffleArray ⇒ <code>array</code>
+<p>Shuffle an array.</p>
+
+**Kind**: global constant  
+**Returns**: <code>array</code> - <p>Shuffled array.</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| array | <code>Array</code> | <p>Arrray to be shuffled.</p> |
+| [modifyOriginal] | <code>Boolean</code> | <p>A boolean indicating whether the original array should be modified or whether a copy should be created. (default True)</p> |
+
+<a name="fireCustomEvent"></a>
+
+## fireCustomEvent
+<p>Fire a custom event.</p>
+<pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
+</code></pre>
+
+**Kind**: global constant  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | <p>Name of the event.</p> |
+| data | <code>object</code> | <p>Object to be passed to the event.</p> |
+| [bubbles] | <code>Boolean</code> | <p>Indicates whether the event bubbles (default True)</p> |
+| [cancelable] | <code>Boolean</code> | <p>Indicates whether the event is cancellable  default True)</p> |
+
+<a name="getElementPosition"></a>
+
+## getElementPosition ⇒ <code>Object</code>
+<p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
+<pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>Object</code> - <p>the element coordinates.</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>DOMNode</code> | <p>Element.</p> |
+| [toWorld] | <code>Boolean</code> | <p>indicates whether the calculation of the element offset should be to the page or to the offset parent. (default True)</p> |
+
+<a name="isChildOf"></a>
+
+## isChildOf ⇒ <code>Boolean</code>
+<p>Determines whether the element is a child 0 ancestor of the other.
+If the toWorld flag is true (default), this will test recursively
+up the node hierarchy.</p>
+<p>This method can be used to determine whether a node is detached
+by something like:</p>
+<pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>Boolean</code> - <p>true is the parentElement is parent (or ancestor) to Element</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| element | <code>DomNode</code> | <p>The element to test with</p> |
+| parentElement | <code>DomNode</code> | <p>The parent element to test against</p> |
+| [toWorld] | <code>Boolean</code> | <p>Whether to test this up the DOM hierarchy</p> |
+
+<a name="getSiblings"></a>
+
+## getSiblings ⇒
+<p>Get siblings from element</p>
+<pre class="prettyprint source lang-javascript"><code>getSiblings(e);
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <p>Returns a list with the element's siblings.</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| e | <code>DOMElement</code> | <p>Element</p> |
+
+<a name="getAncestors"></a>
+
+## getAncestors
+<p>Retrieves all of the ancestors of an element, optionally to
+the document body (true by default). The list that is
+returned is the list of ancestors in order from the oldest
+to youngest.</p>
+
+**Kind**: global constant  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| e | <code>DOMElement</code> | <p>The element to retrieve the ancestors for</p> |
+| [toBody] | <code>boolean</code> | <p>whether to only test to the body (default True)</p> |
+| [ancestors] | <code>array</code> | <p>the list of already existing elements to pass. This is nromally only used internally</p> |
+
+<a name="matches"></a>
+
+## matches
+<p>Function to normalize the selctor 'matchesSelector' across browsers</p>
+
+**Kind**: global constant  
+<a name="getSelectorForElement"></a>
+
+## getSelectorForElement ⇒ <code>String</code>
+<p>Returns the CSS selector for a provided element</p>
+
+**Kind**: global constant  
+**Returns**: <code>String</code> - <p>The CSS selector the describes exactly where to find the element</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| el | <code>DOMElement</code> | <p>The DOM node to find a selector for</p> |
+
+<a name="fixWidows"></a>
+
+## fixWidows
+<p>Fix widows replaces the last space in a sentence with a non-breaking space
+This function is a little dangerous at the moment so we should revisit it at some point in the future</p>
+
+**Kind**: global constant  
+<a name="serializeArray"></a>
+
+## serializeArray ⇒ <code>Array</code>
+<p>Returns the form data as an array of name/value pairs.</p>
+
+**Kind**: global constant  
+**Returns**: <code>Array</code> - <p>Serialized data</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| form | <code>DOMElement</code> | <p>The <form> DOM node</p> |
+
+<a name="asyncImageLoad"></a>
+
+## asyncImageLoad ⇒ <code>Promise</code>
+<p>Asynchronous image loader. Returns a promise for an image
+allowing it to be used directly via <code>.then()</code> or as a part
+of an async workload via <code>await</code>.</p>
+<p>The then returns the provided image for use in the promise
+fulfullment.</p>
+<p>Usage:</p>
+<pre class="prettyprint source"><code>const img = new Image();
+img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
+const p = asyncImageLoad(img, '/assets/images/cool_image.png')
+p.then((img) => {
+  console.log('image loaded!')
+}, (reason) => {
+  console.log('image didn\'t load')
+});
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>Promise</code> - <p>A primise</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| img | <code>Image</code> | <p>The image object to perform the operation on</p> |
+| src | <code>String</code> | <p>The image SRC</p> |
 
