@@ -321,7 +321,7 @@ export const serializeArray = (form) => {
  * fulfullment.
  *
  * Usage:
- * ```
+ * ```js
  * try {
  *  const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: "anonymous" })
  *  // do something cool with img
@@ -330,7 +330,7 @@ export const serializeArray = (form) => {
  * }
  * ```
  * Without async/await:
- * ```
+ * ```js
  * const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: "anonymous" }).then((img) => {
  *  // do something cool with img
  *  return img
@@ -341,7 +341,7 @@ export const serializeArray = (form) => {
  *
  * @param  {Object}  props     Image properties
  * @param  {String}  props.src The image SRC
- * @return {Promise}           A primise
+ * @return {Promise}           A promise
  */
 export const asyncImageLoad = function ({ src, ...props }) {
   return new Promise((resolve, reject) => {
