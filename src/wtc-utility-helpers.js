@@ -96,7 +96,7 @@ export const fireCustomEvent = (name, data, bubbles, cancelable) => {
   var params = {
     bubbles: bubbles || true,
     cancelable: cancelable || true,
-    detail: data || null
+    detail: data || null,
   };
 
   ev = new CustomEvent(name, params);
@@ -118,7 +118,7 @@ export const fireCustomEvent = (name, data, bubbles, cancelable) => {
 export const getElementPosition = (element, toWorld = true) => {
   const offset = {
     top: 0,
-    left: 0
+    left: 0,
   };
 
   if (toWorld === false) {
@@ -178,8 +178,8 @@ export const isChildOf = (element, parentElement, toWorld = true) => {
  * @param {DOMElement} e Element
  * @return Returns a list with the element's siblings.
  */
-export const getSiblings = element => {
-  return [...element.parentNode.children].filter(child => {
+export const getSiblings = (element) => {
+  return [...element.parentNode.children].filter((child) => {
     return child !== element;
   });
 };
@@ -231,7 +231,7 @@ export const matches = () => {
  * @param  {DOMElement}   el         The DOM node to find a selector for
  * @return {String}                  The CSS selector the describes exactly where to find the element
  */
-export const getSelectorForElement = element => {
+export const getSelectorForElement = (element) => {
   var particles = [];
   while (element.parentNode) {
     if (element.id) {
@@ -258,7 +258,7 @@ export const getSelectorForElement = element => {
  * Fix widows replaces the last space in a sentence with a non-breaking space
  * This function is a little dangerous at the moment so we should revisit it at some point in the future
  */
-export const fixWidows = els => {
+export const fixWidows = (els) => {
   _els = els;
   if (els instanceof Node) {
     _els = [els];
@@ -279,7 +279,7 @@ export const fixWidows = els => {
  * @param  {DOMElement}   form       The <form> DOM node
  * @return {Array}                   Serialized data
  */
-export const serializeArray = form => {
+export const serializeArray = (form) => {
   let s = [];
 
   if (typeof form == "object" && form.nodeName == "FORM") {
@@ -310,4 +310,50 @@ export const serializeArray = form => {
   }
 
   return s;
+};
+
+/**
+ * Asynchronous image loader. Returns a promise for an image
+ * allowing it to be used directly via `.then()` or as a part
+ * of an async workload via `await`.
+ *
+ * The then returns the provided image for use in the promise
+ * fulfullment.
+ *
+ * Usage:
+ * ```
+ * try {
+ *  const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: "anonymous" })
+ *  // do something cool with img
+ * } catch(err) {
+ *  // Something happened and img didn't load
+ * }
+ * ```
+ * Without async/await:
+ * ```
+ * const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: "anonymous" }).then((img) => {
+ *  // do something cool with img
+ *  return img
+ * }).catch((err) => {
+ *  // Something happened and img didn't load
+ * }) {
+ * ```
+ *
+ * @param  {Object}  props     Image properties
+ * @param  {String}  props.src The image SRC
+ * @return {Promise}           A primise
+ */
+export const asyncImageLoad = function ({ src, ...props }) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+
+    for (let [key, val] of Object.entries(props)) {
+      img[key] = val;
+    }
+
+    img.src = src;
+  });
 };
