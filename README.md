@@ -56,7 +56,7 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>try {
+<pre class="prettyprint source language-javascript"><code>try {
  const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
  // do something cool with img
 } catch(err) {
@@ -64,7 +64,7 @@ fulfullment.</p>
 }
 </code></pre>
 <p>Without async/await:</p>
-<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+<pre class="prettyprint source lang-js"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
  // do something cool with img
  return img
 }).catch((err) => {
@@ -126,7 +126,7 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>try {
+<pre class="prettyprint source language-javascript"><code>try {
  const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
  // do something cool with img
 } catch(err) {
@@ -134,7 +134,7 @@ fulfullment.</p>
 }
 </code></pre>
 <p>Without async/await:</p>
-<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+<pre class="prettyprint source lang-js"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
  // do something cool with img
  return img
 }).catch((err) => {
@@ -329,7 +329,7 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>try {
+<pre class="prettyprint source lang-js"><code>try {
  const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
  // do something cool with img
 } catch(err) {
@@ -337,7 +337,7 @@ fulfullment.</p>
 }
 </code></pre>
 <p>Without async/await:</p>
-<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+<pre class="prettyprint source lang-js"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
  // do something cool with img
  return img
 }).catch((err) => {
@@ -346,7 +346,7 @@ fulfullment.</p>
 </code></pre>
 
 **Kind**: global constant  
-**Returns**: <code>Promise</code> - <p>A primise</p>  
+**Returns**: <code>Promise</code> - <p>A promise</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -539,7 +539,7 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>try {
+<pre class="prettyprint source lang-js"><code>try {
  const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
  // do something cool with img
 } catch(err) {
@@ -547,7 +547,7 @@ fulfullment.</p>
 }
 </code></pre>
 <p>Without async/await:</p>
-<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+<pre class="prettyprint source lang-js"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
  // do something cool with img
  return img
 }).catch((err) => {
@@ -556,7 +556,7 @@ fulfullment.</p>
 </code></pre>
 
 **Kind**: global constant  
-**Returns**: <code>Promise</code> - <p>A primise</p>  
+**Returns**: <code>Promise</code> - <p>A promise</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
