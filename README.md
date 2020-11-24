@@ -56,14 +56,20 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>const img = new Image();
-img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
-const p = asyncImageLoad(img, '/assets/images/cool_image.png')
-p.then((img) => {
-  console.log('image loaded!')
-}, (reason) => {
-  console.log('image didn\'t load')
-});
+<pre class="prettyprint source"><code>try {
+ const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
+ // do something cool with img
+} catch(err) {
+ // Something happened and img didn't load
+}
+</code></pre>
+<p>Without async/await:</p>
+<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+ // do something cool with img
+ return img
+}).catch((err) => {
+ // Something happened and img didn't load
+}) {
 </code></pre></dd>
 <dt><a href="#floatRandomBetween">floatRandomBetween</a> ⇒ <code>number</code></dt>
 <dd><p>Generate a random float number max and min.</p>
@@ -120,14 +126,20 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>const img = new Image();
-img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
-const p = asyncImageLoad(img, '/assets/images/cool_image.png')
-p.then((img) => {
-  console.log('image loaded!')
-}, (reason) => {
-  console.log('image didn\'t load')
-});
+<pre class="prettyprint source"><code>try {
+ const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
+ // do something cool with img
+} catch(err) {
+ // Something happened and img didn't load
+}
+</code></pre>
+<p>Without async/await:</p>
+<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+ // do something cool with img
+ return img
+}).catch((err) => {
+ // Something happened and img didn't load
+}) {
 </code></pre></dd>
 </dl>
 
@@ -317,14 +329,20 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>const img = new Image();
-img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
-const p = asyncImageLoad(img, '/assets/images/cool_image.png')
-p.then((img) => {
-  console.log('image loaded!')
-}, (reason) => {
-  console.log('image didn\'t load')
-});
+<pre class="prettyprint source"><code>try {
+ const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
+ // do something cool with img
+} catch(err) {
+ // Something happened and img didn't load
+}
+</code></pre>
+<p>Without async/await:</p>
+<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+ // do something cool with img
+ return img
+}).catch((err) => {
+ // Something happened and img didn't load
+}) {
 </code></pre>
 
 **Kind**: global constant  
@@ -332,8 +350,8 @@ p.then((img) => {
 
 | Param | Type | Description |
 | --- | --- | --- |
-| img | <code>Image</code> | <p>The image object to perform the operation on</p> |
-| src | <code>String</code> | <p>The image SRC</p> |
+| props | <code>Object</code> | <p>Image properties</p> |
+| props.src | <code>String</code> | <p>The image SRC</p> |
 
 <a name="floatRandomBetween"></a>
 
@@ -521,14 +539,20 @@ of an async workload via <code>await</code>.</p>
 <p>The then returns the provided image for use in the promise
 fulfullment.</p>
 <p>Usage:</p>
-<pre class="prettyprint source"><code>const img = new Image();
-img.crossOrigin = &quot;anonymous&quot;; // If you need to load images cross-origin
-const p = asyncImageLoad(img, '/assets/images/cool_image.png')
-p.then((img) => {
-  console.log('image loaded!')
-}, (reason) => {
-  console.log('image didn\'t load')
-});
+<pre class="prettyprint source"><code>try {
+ const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; })
+ // do something cool with img
+} catch(err) {
+ // Something happened and img didn't load
+}
+</code></pre>
+<p>Without async/await:</p>
+<pre class="prettyprint source"><code>const img = asyncImageLoad({ src: '/assets/images/cool_image.png', alt: 'Cool Cats', crossOrigin: &quot;anonymous&quot; }).then((img) => {
+ // do something cool with img
+ return img
+}).catch((err) => {
+ // Something happened and img didn't load
+}) {
 </code></pre>
 
 **Kind**: global constant  
@@ -536,6 +560,6 @@ p.then((img) => {
 
 | Param | Type | Description |
 | --- | --- | --- |
-| img | <code>Image</code> | <p>The image object to perform the operation on</p> |
-| src | <code>String</code> | <p>The image SRC</p> |
+| props | <code>Object</code> | <p>Image properties</p> |
+| props.src | <code>String</code> | <p>The image SRC</p> |
 
