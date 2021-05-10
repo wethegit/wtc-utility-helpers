@@ -1,6 +1,6 @@
 {
   "name": "wtc-utility-helpers",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Javascript helpers, perfect for non-jquery projects.",
   "source": "src/wtc-utility-helpers.js",
   "main": "dist/wtc-utility-helpers.js",
@@ -35,10 +35,8 @@
     "url": "https://github.com/wethegit/wtc-utility-helpers/issues"
   },
   "homepage": "https://github.com/wethegit/wtc-utility-helpers",
-  "devDependencies": {
-    "jsdoc-to-markdown": "^5.0.1"
-  },
   "dependencies": {
+    "jsdoc-to-markdown": "^5.0.1",
     "microbundle": "^0.13.0"
   }
 }

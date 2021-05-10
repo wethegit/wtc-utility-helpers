@@ -13,6 +13,10 @@
 <dd><p>Linearly interpolate between two values by a unit interval</p>
 <pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
 </code></pre></dd>
+<dt><a href="#clamp">clamp</a> ⇒ <code>number</code></dt>
+<dd><p>Clamps a value between an upper and lower bound.</p>
+<pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
+</code></pre></dd>
 <dt><a href="#shuffleArray">shuffleArray</a> ⇒ <code>array</code></dt>
 <dd><p>Shuffle an array.</p></dd>
 <dt><a href="#fireCustomEvent">fireCustomEvent</a></dt>
@@ -82,6 +86,10 @@ fulfullment.</p>
 <dt><a href="#lerp">lerp</a> ⇒ <code>number</code></dt>
 <dd><p>Linearly interpolate between two values by a unit interval</p>
 <pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
+</code></pre></dd>
+<dt><a href="#clamp">clamp</a> ⇒ <code>number</code></dt>
+<dd><p>Clamps a value between an upper and lower bound.</p>
+<pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
 </code></pre></dd>
 <dt><a href="#shuffleArray">shuffleArray</a> ⇒ <code>array</code></dt>
 <dd><p>Shuffle an array.</p></dd>
@@ -188,6 +196,22 @@ fulfullment.</p>
 | x | <code>number</code> | <p>The lower value</p> |
 | y | <code>number</code> | <p>The upper value</p> |
 | amount | <code>number</code> | <p>the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this <em>will</em> work with higher and lower values as well.</p> |
+
+<a name="clamp"></a>
+
+## clamp ⇒ <code>number</code>
+<p>Clamps a value between an upper and lower bound.</p>
+<pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>number</code> - <p>A number in the range [min, max]</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| min | <code>number</code> | <p>The lower bound</p> |
+| max | <code>number</code> | <p>The upper bound</p> |
+| value | <code>number</code> | <p>The value to clamp.</p> |
 
 <a name="shuffleArray"></a>
 
@@ -398,6 +422,22 @@ fulfullment.</p>
 | x | <code>number</code> | <p>The lower value</p> |
 | y | <code>number</code> | <p>The upper value</p> |
 | amount | <code>number</code> | <p>the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this <em>will</em> work with higher and lower values as well.</p> |
+
+<a name="clamp"></a>
+
+## clamp ⇒ <code>number</code>
+<p>Clamps a value between an upper and lower bound.</p>
+<pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
+</code></pre>
+
+**Kind**: global constant  
+**Returns**: <code>number</code> - <p>A number in the range [min, max]</p>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| min | <code>number</code> | <p>The lower bound</p> |
+| max | <code>number</code> | <p>The upper bound</p> |
+| value | <code>number</code> | <p>The value to clamp.</p> |
 
 <a name="shuffleArray"></a>
 
