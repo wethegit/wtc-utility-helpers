@@ -45,6 +45,22 @@ export const lerp = (x, y, amount) => {
 };
 
 /**
+ * Clamps a value between an upper and lower bound.
+ *
+ * ```javascript
+ * clamp(0, 1, 2); // 1
+ * ```
+ *
+ * @param {number} min The lower bound
+ * @param {number} max The upper bound
+ * @param {number} value The value to clamp.
+ * @return {number} A number in the range [min, max]
+ */
+export const clamp = function (min, max, value) {
+  return Math.min(Math.max(value, min), max);
+};
+
+/**
  * Shuffle an array.
  *
  * @param {Array} array Arrray to be shuffled.

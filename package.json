@@ -1,14 +1,24 @@
 {
   "name": "wtc-utility-helpers",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "Javascript helpers, perfect for non-jquery projects.",
+  "source": "src/wtc-utility-helpers.js",
   "main": "dist/wtc-utility-helpers.js",
+  "umd:main": "dist/wtc-utility-helpers.umd.js",
+  "unpkg": "dist/wtc-utility-helpers.umd.js",
+  "module": "dist/wtc-utility-helpers.module.js",
+  "exports": {
+    ".": "./dist/wtc-utility-helpers.modern.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src/ --presets @babel/preset-env --out-dir dist",
-    "build-ES5": "npx webpack --config webpack.config.js",
-    "prepare": "npm run build && npm run build-ES5",
-    "document": "npx jsdoc2md src/wtc-utility-helpers.js -c jsdoc.json > README.md"
+    "document": "npx jsdoc2md src/wtc-utility-helpers.js -c jsdoc.json > README.md",
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean; microbundle; npm run document",
+    "dev": "npm run clean; microbundle watch",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -26,13 +36,9 @@
   },
   "homepage": "https://github.com/wethegit/wtc-utility-helpers",
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "babel-loader": "^8.0.5",
-    "core-js": "^3.2.1",
-    "jsdoc-to-markdown": "^5.0.1",
-    "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1"
+    "jsdoc-to-markdown": "^5.0.1"
+  },
+  "dependencies": {
+    "microbundle": "^0.13.0"
   }
 }
