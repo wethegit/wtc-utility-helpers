@@ -24,6 +24,6 @@
     "theme": "slate",
     "navType": "inline",
     "linenums": true,
-    "dateFormat": "MMMM Do YYYY, h:mm:ss a"
+    "dateFormat": "Do MMMM YYYY, h:mm:ss a"
   }
 }

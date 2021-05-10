@@ -1,33 +1,33 @@
-## Constants
+## Functions
 
 <dl>
-<dt><a href="#floatRandomBetween">floatRandomBetween</a> ⇒ <code>number</code></dt>
+<dt><a href="#floatRandomBetween">floatRandomBetween(min, max)</a> ⇒ <code>number</code></dt>
 <dd><p>Generate a random float number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
 </code></pre></dd>
-<dt><a href="#randomBetween">randomBetween</a> ⇒ <code>number</code></dt>
+<dt><a href="#randomBetween">randomBetween(min, max)</a> ⇒ <code>number</code></dt>
 <dd><p>Generate a random integer number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
 </code></pre></dd>
-<dt><a href="#lerp">lerp</a> ⇒ <code>number</code></dt>
+<dt><a href="#lerp">lerp(x, y, amount)</a> ⇒ <code>number</code></dt>
 <dd><p>Linearly interpolate between two values by a unit interval</p>
 <pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
 </code></pre></dd>
-<dt><a href="#clamp">clamp</a> ⇒ <code>number</code></dt>
+<dt><a href="#clampfunction">clampfunction(min, max, value)</a> ⇒ <code>number</code></dt>
 <dd><p>Clamps a value between an upper and lower bound.</p>
 <pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
 </code></pre></dd>
-<dt><a href="#shuffleArray">shuffleArray</a> ⇒ <code>array</code></dt>
+<dt><a href="#shuffleArray">shuffleArray(array, [modifyOriginal])</a> ⇒ <code>array</code></dt>
 <dd><p>Shuffle an array.</p></dd>
-<dt><a href="#fireCustomEvent">fireCustomEvent</a></dt>
+<dt><a href="#fireCustomEvent">fireCustomEvent(name, data, [bubbles], [cancelable])</a></dt>
 <dd><p>Fire a custom event.</p>
 <pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
 </code></pre></dd>
-<dt><a href="#getElementPosition">getElementPosition</a> ⇒ <code>Object</code></dt>
+<dt><a href="#getElementPosition">getElementPosition(element, [toWorld])</a> ⇒ <code>Object</code></dt>
 <dd><p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
 <pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
 </code></pre></dd>
-<dt><a href="#isChildOf">isChildOf</a> ⇒ <code>Boolean</code></dt>
+<dt><a href="#isChildOf">isChildOf(element, parentElement, [toWorld])</a> ⇒ <code>Boolean</code></dt>
 <dd><p>Determines whether the element is a child 0 ancestor of the other.
 If the toWorld flag is true (default), this will test recursively
 up the node hierarchy.</p>
@@ -35,25 +35,23 @@ up the node hierarchy.</p>
 by something like:</p>
 <pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
 </code></pre></dd>
-<dt><a href="#getSiblings">getSiblings</a> ⇒</dt>
+<dt><a href="#getSiblings">getSiblings(e)</a> ⇒</dt>
 <dd><p>Get siblings from element</p>
 <pre class="prettyprint source lang-javascript"><code>getSiblings(e);
 </code></pre></dd>
-<dt><a href="#getAncestors">getAncestors</a></dt>
+<dt><a href="#getAncestors">getAncestors(e, [toBody], [ancestors])</a></dt>
 <dd><p>Retrieves all of the ancestors of an element, optionally to
 the document body (true by default). The list that is
 returned is the list of ancestors in order from the oldest
 to youngest.</p></dd>
-<dt><a href="#matches">matches</a></dt>
-<dd><p>Function to normalize the selctor 'matchesSelector' across browsers</p></dd>
-<dt><a href="#getSelectorForElement">getSelectorForElement</a> ⇒ <code>String</code></dt>
+<dt><a href="#getSelectorForElement">getSelectorForElement(el)</a> ⇒ <code>String</code></dt>
 <dd><p>Returns the CSS selector for a provided element</p></dd>
-<dt><a href="#fixWidows">fixWidows</a></dt>
+<dt><a href="#fixWidows">fixWidows()</a></dt>
 <dd><p>Fix widows replaces the last space in a sentence with a non-breaking space
 This function is a little dangerous at the moment so we should revisit it at some point in the future</p></dd>
-<dt><a href="#serializeArray">serializeArray</a> ⇒ <code>Array</code></dt>
+<dt><a href="#serializeArray">serializeArray(form)</a> ⇒ <code>Array</code></dt>
 <dd><p>Returns the form data as an array of name/value pairs.</p></dd>
-<dt><a href="#asyncImageLoad">asyncImageLoad</a> ⇒ <code>Promise</code></dt>
+<dt><a href="#asyncImageLoadfunction">asyncImageLoadfunction(props)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Asynchronous image loader. Returns a promise for an image
 allowing it to be used directly via <code>.then()</code> or as a part
 of an async workload via <code>await</code>.</p>
@@ -75,33 +73,33 @@ fulfullment.</p>
  // Something happened and img didn't load
 }) {
 </code></pre></dd>
-<dt><a href="#floatRandomBetween">floatRandomBetween</a> ⇒ <code>number</code></dt>
+<dt><a href="#floatRandomBetween">floatRandomBetween(min, max)</a> ⇒ <code>number</code></dt>
 <dd><p>Generate a random float number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
 </code></pre></dd>
-<dt><a href="#randomBetween">randomBetween</a> ⇒ <code>number</code></dt>
+<dt><a href="#randomBetween">randomBetween(min, max)</a> ⇒ <code>number</code></dt>
 <dd><p>Generate a random integer number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
 </code></pre></dd>
-<dt><a href="#lerp">lerp</a> ⇒ <code>number</code></dt>
+<dt><a href="#lerp">lerp(x, y, amount)</a> ⇒ <code>number</code></dt>
 <dd><p>Linearly interpolate between two values by a unit interval</p>
 <pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
 </code></pre></dd>
-<dt><a href="#clamp">clamp</a> ⇒ <code>number</code></dt>
+<dt><a href="#clampfunction">clampfunction(min, max, value)</a> ⇒ <code>number</code></dt>
 <dd><p>Clamps a value between an upper and lower bound.</p>
 <pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
 </code></pre></dd>
-<dt><a href="#shuffleArray">shuffleArray</a> ⇒ <code>array</code></dt>
+<dt><a href="#shuffleArray">shuffleArray(array, [modifyOriginal])</a> ⇒ <code>array</code></dt>
 <dd><p>Shuffle an array.</p></dd>
-<dt><a href="#fireCustomEvent">fireCustomEvent</a></dt>
+<dt><a href="#fireCustomEvent">fireCustomEvent(name, data, [bubbles], [cancelable])</a></dt>
 <dd><p>Fire a custom event.</p>
 <pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
 </code></pre></dd>
-<dt><a href="#getElementPosition">getElementPosition</a> ⇒ <code>Object</code></dt>
+<dt><a href="#getElementPosition">getElementPosition(element, [toWorld])</a> ⇒ <code>Object</code></dt>
 <dd><p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
 <pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
 </code></pre></dd>
-<dt><a href="#isChildOf">isChildOf</a> ⇒ <code>Boolean</code></dt>
+<dt><a href="#isChildOf">isChildOf(element, parentElement, [toWorld])</a> ⇒ <code>Boolean</code></dt>
 <dd><p>Determines whether the element is a child 0 ancestor of the other.
 If the toWorld flag is true (default), this will test recursively
 up the node hierarchy.</p>
@@ -109,25 +107,23 @@ up the node hierarchy.</p>
 by something like:</p>
 <pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
 </code></pre></dd>
-<dt><a href="#getSiblings">getSiblings</a> ⇒</dt>
+<dt><a href="#getSiblings">getSiblings(e)</a> ⇒</dt>
 <dd><p>Get siblings from element</p>
 <pre class="prettyprint source lang-javascript"><code>getSiblings(e);
 </code></pre></dd>
-<dt><a href="#getAncestors">getAncestors</a></dt>
+<dt><a href="#getAncestors">getAncestors(e, [toBody], [ancestors])</a></dt>
 <dd><p>Retrieves all of the ancestors of an element, optionally to
 the document body (true by default). The list that is
 returned is the list of ancestors in order from the oldest
 to youngest.</p></dd>
-<dt><a href="#matches">matches</a></dt>
-<dd><p>Function to normalize the selctor 'matchesSelector' across browsers</p></dd>
-<dt><a href="#getSelectorForElement">getSelectorForElement</a> ⇒ <code>String</code></dt>
+<dt><a href="#getSelectorForElement">getSelectorForElement(el)</a> ⇒ <code>String</code></dt>
 <dd><p>Returns the CSS selector for a provided element</p></dd>
-<dt><a href="#fixWidows">fixWidows</a></dt>
+<dt><a href="#fixWidows">fixWidows()</a></dt>
 <dd><p>Fix widows replaces the last space in a sentence with a non-breaking space
 This function is a little dangerous at the moment so we should revisit it at some point in the future</p></dd>
-<dt><a href="#serializeArray">serializeArray</a> ⇒ <code>Array</code></dt>
+<dt><a href="#serializeArray">serializeArray(form)</a> ⇒ <code>Array</code></dt>
 <dd><p>Returns the form data as an array of name/value pairs.</p></dd>
-<dt><a href="#asyncImageLoad">asyncImageLoad</a> ⇒ <code>Promise</code></dt>
+<dt><a href="#asyncImageLoadfunction">asyncImageLoadfunction(props)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Asynchronous image loader. Returns a promise for an image
 allowing it to be used directly via <code>.then()</code> or as a part
 of an async workload via <code>await</code>.</p>
@@ -153,12 +149,12 @@ fulfullment.</p>
 
 <a name="floatRandomBetween"></a>
 
-## floatRandomBetween ⇒ <code>number</code>
+## floatRandomBetween(min, max) ⇒ <code>number</code>
 <p>Generate a random float number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>Random number.</p>  
 
 | Param | Type | Description |
@@ -168,12 +164,12 @@ fulfullment.</p>
 
 <a name="randomBetween"></a>
 
-## randomBetween ⇒ <code>number</code>
+## randomBetween(min, max) ⇒ <code>number</code>
 <p>Generate a random integer number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>Random number.</p>  
 
 | Param | Type | Description |
@@ -183,12 +179,12 @@ fulfullment.</p>
 
 <a name="lerp"></a>
 
-## lerp ⇒ <code>number</code>
+## lerp(x, y, amount) ⇒ <code>number</code>
 <p>Linearly interpolate between two values by a unit interval</p>
 <pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>The interpolated value</p>  
 
 | Param | Type | Description |
@@ -197,14 +193,14 @@ fulfullment.</p>
 | y | <code>number</code> | <p>The upper value</p> |
 | amount | <code>number</code> | <p>the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this <em>will</em> work with higher and lower values as well.</p> |
 
-<a name="clamp"></a>
+<a name="clampfunction"></a>
 
-## clamp ⇒ <code>number</code>
+## clampfunction(min, max, value) ⇒ <code>number</code>
 <p>Clamps a value between an upper and lower bound.</p>
 <pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>A number in the range [min, max]</p>  
 
 | Param | Type | Description |
@@ -215,10 +211,10 @@ fulfullment.</p>
 
 <a name="shuffleArray"></a>
 
-## shuffleArray ⇒ <code>array</code>
+## shuffleArray(array, [modifyOriginal]) ⇒ <code>array</code>
 <p>Shuffle an array.</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>array</code> - <p>Shuffled array.</p>  
 
 | Param | Type | Description |
@@ -228,12 +224,12 @@ fulfullment.</p>
 
 <a name="fireCustomEvent"></a>
 
-## fireCustomEvent
+## fireCustomEvent(name, data, [bubbles], [cancelable])
 <p>Fire a custom event.</p>
 <pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -244,12 +240,12 @@ fulfullment.</p>
 
 <a name="getElementPosition"></a>
 
-## getElementPosition ⇒ <code>Object</code>
+## getElementPosition(element, [toWorld]) ⇒ <code>Object</code>
 <p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
 <pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Object</code> - <p>the element coordinates.</p>  
 
 | Param | Type | Description |
@@ -259,7 +255,7 @@ fulfullment.</p>
 
 <a name="isChildOf"></a>
 
-## isChildOf ⇒ <code>Boolean</code>
+## isChildOf(element, parentElement, [toWorld]) ⇒ <code>Boolean</code>
 <p>Determines whether the element is a child 0 ancestor of the other.
 If the toWorld flag is true (default), this will test recursively
 up the node hierarchy.</p>
@@ -268,7 +264,7 @@ by something like:</p>
 <pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Boolean</code> - <p>true is the parentElement is parent (or ancestor) to Element</p>  
 
 | Param | Type | Description |
@@ -279,12 +275,12 @@ by something like:</p>
 
 <a name="getSiblings"></a>
 
-## getSiblings ⇒
+## getSiblings(e) ⇒
 <p>Get siblings from element</p>
 <pre class="prettyprint source lang-javascript"><code>getSiblings(e);
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <p>Returns a list with the element's siblings.</p>  
 
 | Param | Type | Description |
@@ -293,13 +289,13 @@ by something like:</p>
 
 <a name="getAncestors"></a>
 
-## getAncestors
+## getAncestors(e, [toBody], [ancestors])
 <p>Retrieves all of the ancestors of an element, optionally to
 the document body (true by default). The list that is
 returned is the list of ancestors in order from the oldest
 to youngest.</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -307,18 +303,12 @@ to youngest.</p>
 | [toBody] | <code>boolean</code> | <p>whether to only test to the body (default True)</p> |
 | [ancestors] | <code>array</code> | <p>the list of already existing elements to pass. This is nromally only used internally</p> |
 
-<a name="matches"></a>
-
-## matches
-<p>Function to normalize the selctor 'matchesSelector' across browsers</p>
-
-**Kind**: global constant  
 <a name="getSelectorForElement"></a>
 
-## getSelectorForElement ⇒ <code>String</code>
+## getSelectorForElement(el) ⇒ <code>String</code>
 <p>Returns the CSS selector for a provided element</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>String</code> - <p>The CSS selector the describes exactly where to find the element</p>  
 
 | Param | Type | Description |
@@ -327,26 +317,26 @@ to youngest.</p>
 
 <a name="fixWidows"></a>
 
-## fixWidows
+## fixWidows()
 <p>Fix widows replaces the last space in a sentence with a non-breaking space
 This function is a little dangerous at the moment so we should revisit it at some point in the future</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 <a name="serializeArray"></a>
 
-## serializeArray ⇒ <code>Array</code>
+## serializeArray(form) ⇒ <code>Array</code>
 <p>Returns the form data as an array of name/value pairs.</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Array</code> - <p>Serialized data</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | form | <code>DOMElement</code> | <p>The <form> DOM node</p> |
 
-<a name="asyncImageLoad"></a>
+<a name="asyncImageLoadfunction"></a>
 
-## asyncImageLoad ⇒ <code>Promise</code>
+## asyncImageLoadfunction(props) ⇒ <code>Promise</code>
 <p>Asynchronous image loader. Returns a promise for an image
 allowing it to be used directly via <code>.then()</code> or as a part
 of an async workload via <code>await</code>.</p>
@@ -369,7 +359,7 @@ fulfullment.</p>
 }) {
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Promise</code> - <p>A promise</p>  
 
 | Param | Type | Description |
@@ -379,12 +369,12 @@ fulfullment.</p>
 
 <a name="floatRandomBetween"></a>
 
-## floatRandomBetween ⇒ <code>number</code>
+## floatRandomBetween(min, max) ⇒ <code>number</code>
 <p>Generate a random float number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>floatRandomBetween(-10, 20); // 12.513
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>Random number.</p>  
 
 | Param | Type | Description |
@@ -394,12 +384,12 @@ fulfullment.</p>
 
 <a name="randomBetween"></a>
 
-## randomBetween ⇒ <code>number</code>
+## randomBetween(min, max) ⇒ <code>number</code>
 <p>Generate a random integer number max and min.</p>
 <pre class="prettyprint source lang-javascript"><code>randomBetween(-10, 20); // 12
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>Random number.</p>  
 
 | Param | Type | Description |
@@ -409,12 +399,12 @@ fulfullment.</p>
 
 <a name="lerp"></a>
 
-## lerp ⇒ <code>number</code>
+## lerp(x, y, amount) ⇒ <code>number</code>
 <p>Linearly interpolate between two values by a unit interval</p>
 <pre class="prettyprint source lang-javascript"><code>lerp(100, 200, .5); // 150
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>The interpolated value</p>  
 
 | Param | Type | Description |
@@ -423,14 +413,14 @@ fulfullment.</p>
 | y | <code>number</code> | <p>The upper value</p> |
 | amount | <code>number</code> | <p>the amount to interpolate. The expected value is a unit interval (a float between 0 and 1), but this <em>will</em> work with higher and lower values as well.</p> |
 
-<a name="clamp"></a>
+<a name="clampfunction"></a>
 
-## clamp ⇒ <code>number</code>
+## clampfunction(min, max, value) ⇒ <code>number</code>
 <p>Clamps a value between an upper and lower bound.</p>
 <pre class="prettyprint source lang-javascript"><code>clamp(0, 1, 2); // 1
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>number</code> - <p>A number in the range [min, max]</p>  
 
 | Param | Type | Description |
@@ -441,10 +431,10 @@ fulfullment.</p>
 
 <a name="shuffleArray"></a>
 
-## shuffleArray ⇒ <code>array</code>
+## shuffleArray(array, [modifyOriginal]) ⇒ <code>array</code>
 <p>Shuffle an array.</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>array</code> - <p>Shuffled array.</p>  
 
 | Param | Type | Description |
@@ -454,12 +444,12 @@ fulfullment.</p>
 
 <a name="fireCustomEvent"></a>
 
-## fireCustomEvent
+## fireCustomEvent(name, data, [bubbles], [cancelable])
 <p>Fire a custom event.</p>
 <pre class="prettyprint source lang-javascript"><code>fireCustomEvent(name, data);
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -470,12 +460,12 @@ fulfullment.</p>
 
 <a name="getElementPosition"></a>
 
-## getElementPosition ⇒ <code>Object</code>
+## getElementPosition(element, [toWorld]) ⇒ <code>Object</code>
 <p>Get the position of the element relative to document or optionally to the nearest offset parent.</p>
 <pre class="prettyprint source lang-javascript"><code>getElementPosition(element); // returns something like { top: 100, left: 500 }
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Object</code> - <p>the element coordinates.</p>  
 
 | Param | Type | Description |
@@ -485,7 +475,7 @@ fulfullment.</p>
 
 <a name="isChildOf"></a>
 
-## isChildOf ⇒ <code>Boolean</code>
+## isChildOf(element, parentElement, [toWorld]) ⇒ <code>Boolean</code>
 <p>Determines whether the element is a child 0 ancestor of the other.
 If the toWorld flag is true (default), this will test recursively
 up the node hierarchy.</p>
@@ -494,7 +484,7 @@ by something like:</p>
 <pre class="prettyprint source"><code>attached = isChildOf(element, document.body);
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Boolean</code> - <p>true is the parentElement is parent (or ancestor) to Element</p>  
 
 | Param | Type | Description |
@@ -505,12 +495,12 @@ by something like:</p>
 
 <a name="getSiblings"></a>
 
-## getSiblings ⇒
+## getSiblings(e) ⇒
 <p>Get siblings from element</p>
 <pre class="prettyprint source lang-javascript"><code>getSiblings(e);
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <p>Returns a list with the element's siblings.</p>  
 
 | Param | Type | Description |
@@ -519,13 +509,13 @@ by something like:</p>
 
 <a name="getAncestors"></a>
 
-## getAncestors
+## getAncestors(e, [toBody], [ancestors])
 <p>Retrieves all of the ancestors of an element, optionally to
 the document body (true by default). The list that is
 returned is the list of ancestors in order from the oldest
 to youngest.</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -533,18 +523,12 @@ to youngest.</p>
 | [toBody] | <code>boolean</code> | <p>whether to only test to the body (default True)</p> |
 | [ancestors] | <code>array</code> | <p>the list of already existing elements to pass. This is nromally only used internally</p> |
 
-<a name="matches"></a>
-
-## matches
-<p>Function to normalize the selctor 'matchesSelector' across browsers</p>
-
-**Kind**: global constant  
 <a name="getSelectorForElement"></a>
 
-## getSelectorForElement ⇒ <code>String</code>
+## getSelectorForElement(el) ⇒ <code>String</code>
 <p>Returns the CSS selector for a provided element</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>String</code> - <p>The CSS selector the describes exactly where to find the element</p>  
 
 | Param | Type | Description |
@@ -553,26 +537,26 @@ to youngest.</p>
 
 <a name="fixWidows"></a>
 
-## fixWidows
+## fixWidows()
 <p>Fix widows replaces the last space in a sentence with a non-breaking space
 This function is a little dangerous at the moment so we should revisit it at some point in the future</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 <a name="serializeArray"></a>
 
-## serializeArray ⇒ <code>Array</code>
+## serializeArray(form) ⇒ <code>Array</code>
 <p>Returns the form data as an array of name/value pairs.</p>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Array</code> - <p>Serialized data</p>  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | form | <code>DOMElement</code> | <p>The <form> DOM node</p> |
 
-<a name="asyncImageLoad"></a>
+<a name="asyncImageLoadfunction"></a>
 
-## asyncImageLoad ⇒ <code>Promise</code>
+## asyncImageLoadfunction(props) ⇒ <code>Promise</code>
 <p>Asynchronous image loader. Returns a promise for an image
 allowing it to be used directly via <code>.then()</code> or as a part
 of an async workload via <code>await</code>.</p>
@@ -595,7 +579,7 @@ fulfullment.</p>
 }) {
 </code></pre>
 
-**Kind**: global constant  
+**Kind**: global function  
 **Returns**: <code>Promise</code> - <p>A promise</p>  
 
 | Param | Type | Description |
